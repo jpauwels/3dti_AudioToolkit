@@ -86,7 +86,7 @@ namespace Binaural {
 		*	\param [in] _sourceTransform new position and orientation of source
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetSourceTransform(Common::CTransform _sourceTransform);
+		void SetSourceTransform(const Common::CTransform & _sourceTransform);
 
 		/** \brief Get current source transform (position and orientation)
 		*	\retval transform reference to current position and orientation of source
@@ -191,7 +191,7 @@ namespace Binaural {
 		*	\retval distanceAttenuationEnabled. If true, distance attenuation effect is enabled for this source
 		*   \eh Nothing is reported to the error handler.
 		*/
-		bool IsDistanceAttenuationEnabledAnechoic();
+		bool IsDistanceAttenuationEnabledAnechoic() const;
 
 		/** \brief Enable distance attenuation Smoothing for this source for anechoic path
 		*   \eh Nothing is reported to the error handler.
@@ -352,15 +352,15 @@ namespace Binaural {
 		void ProcessAnechoic(const CMonoBuffer<float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth);
 
 		// Make the spatialization using HRTF convolution
-		void ProcessHRTF(CMonoBuffer<float> &inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation, float _azCenter, float _elCenter);
+		void ProcessHRTF(const CMonoBuffer<float> &inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation, float _azCenter, float _elCenter);
 		/// Make the spatialization using a ILD aproach				
 		void ProccesILDSpatializationAndAddITD(CMonoBuffer<float> &leftBuffer, CMonoBuffer<float> &rightBuffer, float distance, float interauralAzimuth, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation);
 		void ProcessILDSpatialization(CMonoBuffer<float> &leftBuffer, CMonoBuffer<float> &rightBuffer, float distance_m, float azimuth);		
 		
 		// Apply distance attenuation
-		void ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, int bufferSize, int sampleRate, float distance);	
+		void ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int bufferSize, const int sampleRate, const float distance);
 		// Apply Far distance effect
-		void ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, float distance);										
+		void ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, const float distance);										
 		// Apply Near field effects (ILD)		
 		void ProcessNearFieldEffect(CMonoBuffer<float> &leftBuffer, CMonoBuffer<float> &rightBuffer, float distance, float interauralAzimuth);				
 		
