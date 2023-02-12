@@ -129,7 +129,7 @@ namespace Common {
 			//Calculate the attenuation increment 
 			float attenuationInc = (attenuation - previousAttenuation) / bufferSize;
 
-			//Apply atennuation to each sample
+			//Apply attenuation to each sample
 			int nChannels = GetNChannels();
 			if (nChannels == 1)
 			{
@@ -174,7 +174,7 @@ namespace Common {
 			if (denominator > EPSILON_ATTACK_SAMPLES) { alpha = 1 - std::exp(1000 * std::log(0.01f) / denominator); }
 			else { alpha = 1; }
 
-			//Apply atennuation to each sample
+			//Apply attenuation to each sample
 			int nChannels = GetNChannels();
 			if (nChannels == 1)
 			{

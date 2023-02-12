@@ -5,7 +5,7 @@ The 3DTI Audio Toolkit consists of three main components: binaural spatialiser, 
 ## Binaural Spatialization
 The first step is to instantiate and configure it: 
 1. Instance the Core Class.
-2. Configure the Audio State paremeters: sample rate (by default 44100 Hz) and buffer size (by default 512 samples). The Buffer Size value must be power of two.
+2. Configure the Audio State parameters: sample rate (by default 44100 Hz) and buffer size (by default 512 samples). The Buffer Size value must be a power of two.
 3. Configure the HRTF resampling step (by default 5). Allowed integer values between 5 and 90. A low value implies more quality during the audio spatialization but also more memory consumed and more time is needed to load the HRTF. The recommended value for most cases is 45.
 4. Instance the listener.
 
@@ -197,8 +197,8 @@ AudioLoop() // Assumes output is stereo interlaced
   environment->ProcessVirtualAmbisonicOutput(bReverbOutput.left, bReverbOuptut.right);
   
   // 8. Mix anechoic and reverb
-  bSpatializedOutput.left += bReverbOuptut.left; 
-  bSpatializedOutput.right += bReverbOuptut.right; 
+  bSpatializedOutput.left += bReverbOutput.left; 
+  bSpatializedOutput.right += bReverbOutput.right; 
   
   // 9. Mix with other non-spatialized sounds, apply other effects,...and finally pass result to audio framework. Assuming fOutput is the array of floats (float*) used by your audio framework, you could do:
   int stSample = 0;

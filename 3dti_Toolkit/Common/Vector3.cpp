@@ -278,7 +278,7 @@ namespace Common {
 
 	//////////////////////////////////////////////
 
-	// Get the interaural azimut angle in radians, according to the selected axis convention. Currently uses LISTEN database convention for elevation angles: full circle starting with 0º in front towards up.  
+	// Get the interaural azimuth angle in radians, according to the selected axis convention. Currently uses LISTEN database convention for elevation angles: full circle starting with 0º in front towards up.  
 	const float CVector3::GetInterauralAzimuthRadians() const
 	{
 		float distance = GetDistance();
