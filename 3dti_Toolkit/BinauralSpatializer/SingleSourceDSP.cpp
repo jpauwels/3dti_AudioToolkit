@@ -340,10 +340,10 @@ namespace Binaural {
 			}
 													 
 			//Apply Far distance effect
-			if (IsFarDistanceEffectEnabled()) {	ProcessFarDistanceEffect(inBuffer, distanceToListener); }			
+			ProcessFarDistanceEffect(inBuffer, distanceToListener);
 			
 			// Apply distance attenuation
-			if (IsDistanceAttenuationEnabledAnechoic()){ ProcessDistanceAttenuationAnechoic(inBuffer, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate, distanceToListener );}
+			ProcessDistanceAttenuationAnechoic(inBuffer, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate, distanceToListener);
 			
 			//Apply Spatialization
 			if( spatializationMode == TSpatializationMode::HighQuality ) {

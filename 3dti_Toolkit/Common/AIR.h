@@ -373,9 +373,9 @@ namespace Common
 		*   \eh Nothing is reported to the error handler.*/
 		bool IsInitialized() {
 #ifdef USE_FREQUENCY_COVOLUTION_WITHOUT_PARTITIONS_REVERB 
-			return impulseResponseLength != 0 && impulseResponseLength != 0 && setupDone && bFormat.size() > 0;
+			return impulseResponseLength != 0 && setupDone && bFormat.size() > 0;
 #else
-			return impulseResponseLength != 0 && impulseResponseLength != 0 && setupDone && bFormat_Partitioned.size() > 0;
+			return impulseResponseLength != 0 && setupDone && bFormat_Partitioned.size() > 0;
 #endif
 		}
 
