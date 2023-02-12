@@ -88,16 +88,16 @@ class CHRTF;
 		CILD* GetILD() const;
 			
 		/** \brief Set ILD attenuation of listener for HighPerformance Spatialization. If no attenuation is set, -6dB are applied by default
-		*	\param [in] _listenerILDAttenutationDB new listener ILD attenuation, in dB		
+		*	\param [in] _listenerILDAttenuationDB new listener ILD attenuation, in dB
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetILDAttenutaion(float _listenerILDAttenutationDB);
+		void SetILDAttenuation(float _listenerILDAttenuationDB);
 
 		/** \brief Get ILD attenuation of listener for HighPerformance Spatialization
 		*	\retval attenuation value in dB of attenuation to apply the HighPerformance ILD spatialization
 		*   \eh Nothing is reported to the error handler.
 		*/						
-		float GetILDAttenutaion();
+		float GetILDAttenuation();
 	
 		/** \brief Set head radius of listener
 		*	\param [in] _listenerHeadRadius new listener head radius, in meters		
@@ -236,7 +236,7 @@ class CHRTF;
 		Common::CTransform listenerTransform;		// Transform matrix (position and orientation) of listener    
 		float listenerHeadRadius;					// Head radius of listener     
 
-		float listenerILDAttenutationDB;			// Attenuation to apply when the ILD is in use (HighPerformance)
+		float listenerILDAttenuationDB;			// Attenuation to apply when the ILD is in use (HighPerformance)
 
 		Common::CEarPair<float> anechoicDirectionalityLinearAttenuation;  // Max value for directionality attenuation in dBs for each channel
 		Common::CEarPair<float> reverbDirectionalityLinearAttenuation;    // Max value for directionality attenuation in dBs for each channel				
@@ -246,7 +246,6 @@ class CHRTF;
 		friend class CCore;							//Friend Class definition
 		friend class CEnvironment;					//Friend Class definition
 		friend class CSingleSourceDSP;				//Friend Class definition
-		friend class CListener;						//Friend Class definition
 	};    
 }
 #endif

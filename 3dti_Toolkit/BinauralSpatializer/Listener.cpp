@@ -33,7 +33,7 @@ namespace Binaural
 	CListener::CListener(CCore* _ownerCore, float _listenerHeadRadius)
     :ownerCore{_ownerCore},
      listenerHeadRadius{_listenerHeadRadius},
-	 listenerILDAttenutationDB{ ILDATTENUATION },
+	 listenerILDAttenuationDB{ ILDATTENUATION },
 	 enableDirectionality {false, false},	 
 	 anechoicDirectionalityLinearAttenuation{0.0f, 0.0f},	 
 	 reverbDirectionalityLinearAttenuation{ 0.0f, 0.0f }	 
@@ -171,9 +171,9 @@ namespace Binaural
 	};
 	
 	//Set ILD attenuation of listener for HighPerformance Spatialization
-	void CListener::SetILDAttenutaion(float _listenerILDAttenutationDB) { listenerILDAttenutationDB = _listenerILDAttenutationDB; }
+	void CListener::SetILDAttenuation(float _listenerILDAttenuationDB) { listenerILDAttenuationDB = _listenerILDAttenuationDB; }
 	//Get ILD attenuation of listener for HighPerformance Spatialization
-	float CListener::GetILDAttenutaion() { return listenerILDAttenutationDB; }
+	float CListener::GetILDAttenuation() { return listenerILDAttenuationDB; }
 	
 	void CListener::EnableDirectionality(Common::T_ear ear) 
 	{ 

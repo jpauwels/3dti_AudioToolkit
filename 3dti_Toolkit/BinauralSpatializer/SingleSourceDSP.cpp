@@ -609,7 +609,7 @@ namespace Binaural {
 		ProcessILDSpatialization(leftBuffer, rightBuffer, distance, interauralAzimuth);		//ILD spatialization
 					
 		//Apply the ILD attenuation
-		float attenuationILD =  std::pow(10.0f, ownerCore->GetListener()->GetILDAttenutaion() * 0.05f);
+		float attenuationILD =  std::pow(10.0f, ownerCore->GetListener()->GetILDAttenuation() * 0.05f);
 		leftBuffer.ApplyGain(attenuationILD);
 		rightBuffer.ApplyGain(attenuationILD);
 
