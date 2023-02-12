@@ -60,13 +60,13 @@ class CHRTF;
 		*	\param [in] _listenerTransform new listener position and orientation		
 		*   \eh Nothing is reported to the error handler.		
 		*/
-		void SetListenerTransform(Common::CTransform _listenerTransform);							
+		void SetListenerTransform(const Common::CTransform & _listenerTransform);							
 
 		/** \brief Get listener position and orientation
 		*	\retval transform current listener position and orientation		
 		*   \eh Nothing is reported to the error handler.
 		*/
-		const Common::CTransform GetListenerTransform() const;	
+		const Common::CTransform & GetListenerTransform() const;
 		
 		/** \brief Get EarPosition local to the listenerr
 		*   \param [in] ear indicates the ear which you want to knowthe position

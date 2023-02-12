@@ -124,7 +124,7 @@ namespace Common {
 		*	\param [in] bufferSize Number of samples in the frame
 		*   \eh On error, an error code is reported to the error handler.
 		*/
-		void ApplyGainGradually(stored previousAttenuation, float attenuation, int bufferSize)
+		void ApplyGainGradually(stored previousAttenuation, const float attenuation, const int bufferSize)
 		{
 			//Calculate the attenuation increment 
 			float attenuationInc = (attenuation - previousAttenuation) / bufferSize;
@@ -161,7 +161,7 @@ namespace Common {
 		*	\param [in] sampleRate sample rate, in Hz
 		*   \eh On error, an error code is reported to the error handler.
 		*/
-		void ApplyGainExponentially(float &previousAttenuation_Channel1, float &previousAttenuation_Channel2, float attenuation, int bufferSize, int sampleRate)
+		void ApplyGainExponentially(float &previousAttenuation_Channel1, float &previousAttenuation_Channel2, const float attenuation, const int bufferSize, const int sampleRate)
 		{
 			float previousGainChannel2 = previousAttenuation_Channel2;
 			float gainChannel2 = 0.0f;

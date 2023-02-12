@@ -65,7 +65,7 @@ namespace Common {
 		
 		/** \brief Get most recent Buffer inserted. This is the last buffer inserted using PushBack the method.
 		*/
-		CMonoBuffer<float> GetMostRecentBuffer() const;
+		const CMonoBuffer<float> & GetMostRecentBuffer() const;
 				
 		/** \brief Reset waveguide to an initial state 
 		*/
