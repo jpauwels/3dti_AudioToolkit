@@ -138,19 +138,19 @@ namespace Binaural
 		*   \retval length int BRIR filter length in time domain
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetBRIRLength();
+		int GetBRIRLength() const;
 
 		/** \brief Get BRIR filter length in frequency domain
 		*   \retval length BRIR filter length in frequency domain
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetBRIRLength_frequency();
+		int GetBRIRLength_frequency() const;
 
 		/** \brief Get BRIR sub-filter (after partition) length in frequency domain
 		*   \retval length BRIR sub-filter length in frequency domain
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetBRIROneSubfilterLength();
+		int GetBRIROneSubfilterLength() const;
 
 		/** \brief Get number of sub-filters (blocks) fo the brir partition
 		*	\retval dataLength Number of sub filters
@@ -158,13 +158,13 @@ namespace Binaural
 		*	\sa SetupIFFT_OLA 
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetBRIRNumberOfSubfilters();
+		int GetBRIRNumberOfSubfilters() const;
 
 		/** \brief Indicates if the BRIR has been set
 		*	\retval isReady Boolean to indicate if the BRIR table has been completed
 		*   \eh Nothing is reported to the error handler.
 		*/
-		bool IsBRIRready();
+		bool IsBRIRready() const;
 		
 		/** \brief Get one partitioned BRIR for one ear and one virtual speaker position
 		*	\param [in] vsPos virtual speaker position

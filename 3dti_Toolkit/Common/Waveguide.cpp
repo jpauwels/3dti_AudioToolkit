@@ -71,7 +71,7 @@ namespace Common {
 	}
 
 	/// Return last frame introduced into the waveguide
-	CMonoBuffer<float> CWaveguide::GetMostRecentBuffer() const
+	const CMonoBuffer<float> & CWaveguide::GetMostRecentBuffer() const
 	{
 		return mostRecentBuffer;
 	}

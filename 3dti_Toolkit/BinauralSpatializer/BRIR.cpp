@@ -196,23 +196,23 @@ namespace Binaural {
 		}
 	}
 
-	int CBRIR::GetBRIRLength() {
+	int CBRIR::GetBRIRLength() const {
 		return BRIRLength;
 	}
 
-	int CBRIR::GetBRIRLength_frequency() {
+	int CBRIR::GetBRIRLength_frequency() const {
 		return BRIRLength_frequency;
 	}
 
-	int CBRIR::GetBRIROneSubfilterLength() {
+	int CBRIR::GetBRIROneSubfilterLength() const {
 		return BRIRsubfilterLength_frequency;
 	}
 
-	int CBRIR::GetBRIRNumberOfSubfilters() {
+	int CBRIR::GetBRIRNumberOfSubfilters() const {
 		return BRIRNumOfSubfilters;
 	}
 
-	bool CBRIR::IsBRIRready() {
+	bool CBRIR::IsBRIRready() const {
 		return BRIR_ready;
 	}
 

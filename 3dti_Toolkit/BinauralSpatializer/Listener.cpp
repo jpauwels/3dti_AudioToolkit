@@ -54,7 +54,7 @@ namespace Binaural
 	}
 
 	// Set listener position and orientation
-	void CListener::SetListenerTransform(Common::CTransform _listenerTransform)
+	void CListener::SetListenerTransform(const Common::CTransform & _listenerTransform)
 	{
 		listenerTransform = _listenerTransform;
 		
@@ -65,7 +65,7 @@ namespace Binaural
 	}
 
 	// Get listener position and orientation
-	const Common::CTransform CListener::GetListenerTransform() const
+	const Common::CTransform & CListener::GetListenerTransform() const
 	{
         return listenerTransform;
 	}

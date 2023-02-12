@@ -58,14 +58,14 @@ namespace Common {
 
 	//////////////////////////////////////////////
 
-	CVector3 CTransform::GetPosition() const
+	const CVector3 & CTransform::GetPosition() const
 	{
 		return position;
 	}
 
 	//////////////////////////////////////////////
 
-	CQuaternion CTransform::GetOrientation() const
+	const CQuaternion & CTransform::GetOrientation() const
 	{
 		return orientation;
 	}
@@ -73,14 +73,14 @@ namespace Common {
 	//////////////////////////////////////////////
 	// SET METHODS
 
-	void CTransform::SetPosition(CVector3 _position)
+	void CTransform::SetPosition(const CVector3 & _position)
 	{
 		position = _position;
 	}
 
 	//////////////////////////////////////////////
 
-	void CTransform::SetOrientation(CQuaternion _orientation)
+	void CTransform::SetOrientation(const CQuaternion & _orientation)
 	{
 		orientation = _orientation;
 	}

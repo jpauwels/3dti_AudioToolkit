@@ -62,13 +62,13 @@ namespace Common {
 		*	\retval position vector containing the position
 		*   \eh Nothing is reported to the error handler.
 		*/
-		CVector3 GetPosition() const;
+		const CVector3 & GetPosition() const;
 
 		/** \brief Get the orientation component
 		*	\retval orientation quaternion containing the orientation
 		*   \eh Nothing is reported to the error handler.
 		*/
-		CQuaternion GetOrientation() const;
+		const CQuaternion & GetOrientation() const;
 
 		//
 		// Set methods
@@ -78,13 +78,13 @@ namespace Common {
 		*	\param [in] _position vector containing the position
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetPosition(CVector3 _position);
+		void SetPosition(const CVector3 & _position);
 
 		/** \brief Set the orientation component
 		*	\param [in] _orientation quaternion containing the orientation
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetOrientation(CQuaternion _orientation);
+		void SetOrientation(const CQuaternion & _orientation);
 
 		//
 		// Transform methods

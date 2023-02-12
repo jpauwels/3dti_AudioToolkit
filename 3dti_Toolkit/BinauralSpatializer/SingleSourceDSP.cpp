@@ -123,7 +123,7 @@ namespace Binaural {
 	}
 	
 	// Set source tranform (position and orientation)
-	void CSingleSourceDSP::SetSourceTransform(Common::CTransform newTransform)
+	void CSingleSourceDSP::SetSourceTransform(const Common::CTransform & newTransform)
 	{	
 		currentSourceTransform = newTransform;		// Save source Transform
 		CalculateCurrentSourceCoordinates();		// Calculated derived parameters
@@ -202,7 +202,7 @@ namespace Binaural {
 	///Disable distance attenuation effect for this source for anechoic path
 	void CSingleSourceDSP::DisableDistanceAttenuationAnechoic() { enableDistanceAttenuationAnechoic = false; };
 	///Get the flag for distance attenuation effect enabling for anechoic path
-	bool CSingleSourceDSP::IsDistanceAttenuationEnabledAnechoic() { return enableDistanceAttenuationAnechoic; };
+	bool CSingleSourceDSP::IsDistanceAttenuationEnabledAnechoic() const { return enableDistanceAttenuationAnechoic; };
 
 	///Enable distance attenuation smoothing for this source for anechoic path
 	void CSingleSourceDSP::EnableDistanceAttenuationSmoothingAnechoic() { attenuationSmooth = true; };
@@ -511,7 +511,7 @@ namespace Binaural {
 	///PRIVATE METHODS
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	void CSingleSourceDSP::ProcessHRTF(CMonoBuffer<float> &inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation, float centerAzimuth, float centerElevation)
+	void CSingleSourceDSP::ProcessHRTF(const CMonoBuffer<float> &inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation, float centerAzimuth, float centerElevation)
 	{
 		ASSERT(ownerCore->GetListener()->GetHRTF()->IsHRTFLoaded(), RESULT_ERROR_NOTSET, "CSingleSourceDSP::ProcessAnechoic: error: HRTF has not been loaded yet.", "");
 		////////////////////////////
@@ -629,7 +629,7 @@ namespace Binaural {
 	}
 
 	/// Apply distance attenuation
-	void CSingleSourceDSP::ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, int bufferSize, int sampleRate, float distance) 
+	void CSingleSourceDSP::ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int bufferSize, const int sampleRate, const float distance)
 	{		
 		float distAttConstant = ownerCore->GetMagnitudes().GetAnechoicDistanceAttenuation();		
 
@@ -640,7 +640,7 @@ namespace Binaural {
 	}
 	
 	// Apply Far distance effect
-	void CSingleSourceDSP::ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, float distance) 
+	void CSingleSourceDSP::ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, const float distance) 
 	{							
 		if (IsFarDistanceEffectEnabled()){ farDistanceEffect.Process(buffer, distance);}		
 	}
