@@ -22,15 +22,15 @@
 */
 
 #include <cmath>
-#include <Common/DistanceAttenuator.h>
-#include <Common/ErrorHandler.h>
-#include <BinauralSpatializer/Core.h>
+#include "Common/DistanceAttenuator.h"
+#include "Common/ErrorHandler.h"
+#include "BinauralSpatializer/Core.h"
 
 #define EPSILON_ATT 0.0001
 
 //#define USE_PROFILER_DistanceAttenuator
 #ifdef USE_PROFILER_DistanceAttenuator
-#include <Common/Profiler.h>
+#include "Common/Profiler.h"
 CProfilerDataSet dsDAAttenuation;
 #endif
 

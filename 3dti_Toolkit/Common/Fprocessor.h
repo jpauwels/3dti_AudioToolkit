@@ -23,8 +23,6 @@
 #ifndef _CFPROCESSOR_H_
 #define _CFPROCESSOR_H_
 
-//#include "Buffer.h"
-//#include <math.h>
 #include <iostream>
 #include <vector>
 #include "fftsg.h"

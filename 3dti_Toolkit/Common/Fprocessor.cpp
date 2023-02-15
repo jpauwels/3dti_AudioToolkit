@@ -26,7 +26,7 @@
 
 //#define USE_PROFILER_Fprocessor
 #ifdef USE_PROFILER_Fprocessor
-#include <Common/Profiler.h>
+#include "Common/Profiler.h"
 CProfilerDataSet dataSetFFT;
 CProfilerDataSet dataSetComplexMult;
 CProfilerDataSet dataSetIFFT;

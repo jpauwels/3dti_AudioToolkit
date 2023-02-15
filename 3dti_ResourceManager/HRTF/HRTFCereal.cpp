@@ -20,7 +20,7 @@
 * \b Acknowledgement : This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
 
-#include <BinauralSpatializer/HRTF.h>
+#include "BinauralSpatializer/HRTF.h"
 #include "HRTFCereal.h"
 #include <fstream>
 

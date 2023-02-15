@@ -21,8 +21,8 @@
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
 
-#include <BinauralSpatializer/Listener.h>
-#include <BinauralSpatializer/Core.h>
+#include "BinauralSpatializer/Listener.h"
+#include "BinauralSpatializer/Core.h"
 
 #define ILDATTENUATION -6.0f
 #define NUM_STEPS_TO_INTEGRATE_CARDIOID_FOR_REVERB 100

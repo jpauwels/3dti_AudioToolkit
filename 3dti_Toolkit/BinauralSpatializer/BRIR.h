@@ -24,12 +24,12 @@
 #define _CBRIR_H_
 
 #include <unordered_map>
-#include <math.h>  
-#include <BinauralSpatializer/Environment.h>
-#include <Common/Buffer.h>
-#include <Common/Fprocessor.h>
-#include <Common/ErrorHandler.h>
-#include <Common/CommonDefinitions.h>
+#include <cmath>  
+#include "BinauralSpatializer/Environment.h"
+#include "Common/Buffer.h"
+#include "Common/Fprocessor.h"
+#include "Common/ErrorHandler.h"
+#include "Common/CommonDefinitions.h"
 
 /** \brief Type definition for virtual speakers in BRIR
 */

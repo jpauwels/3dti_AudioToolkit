@@ -25,9 +25,9 @@
 
 #include <iostream>
 #include <vector>
-#include <Common/Fprocessor.h>
-#include <Common/Buffer.h>
-#include <BinauralSpatializer/HRTF.h>
+#include "Common/Fprocessor.h"
+#include "Common/Buffer.h"
+#include "BinauralSpatializer/HRTF.h"
 
 /** \brief Type definition for partitioned HRIR table
 */

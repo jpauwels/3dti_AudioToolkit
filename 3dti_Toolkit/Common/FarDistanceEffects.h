@@ -23,9 +23,9 @@
 #ifndef _CFAR_DISTACE_EFFECTS_H_
 #define _CFAR_DISTACE_EFFECTS_H_
 
-#include <Common/Buffer.h>
-#include <Common/CommonDefinitions.h>
-#include <Common/FiltersChain.h>
+#include "Common/Buffer.h"
+#include "Common/CommonDefinitions.h"
+#include "Common/FiltersChain.h"
 
 class CMagnitudes;
 

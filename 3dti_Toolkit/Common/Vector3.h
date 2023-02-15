@@ -23,7 +23,7 @@
 #ifndef _CVECTOR3_H_
 #define _CVECTOR3_H_
 
-#include <Common/Conventions.h>
+#include "Common/Conventions.h"
 #include <iostream>
 #include <string>
 

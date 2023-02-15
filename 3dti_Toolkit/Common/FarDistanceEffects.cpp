@@ -19,9 +19,9 @@
 *
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
-#include <Common/FarDistanceEffects.h>
-#include <Common/ErrorHandler.h>
-#include <BinauralSpatializer/Core.h>
+#include "Common/FarDistanceEffects.h"
+#include "Common/ErrorHandler.h"
+#include "BinauralSpatializer/Core.h"
 
 // Defines the frequency at which audible frequencies are not attenuated in a low pass filter.
 #define NO_FILTERING_CUT_OFF_FREQUENCY 20000
@@ -43,7 +43,7 @@
 
 //#define USE_PROFILER_FarDistanceEffects
 #ifdef USE_PROFILER_FarDistanceEffects
-#include <Common/Profiler.h>
+#include "Common/Profiler.h"
 CProfilerDataSet dsDAFar;
 #endif 
 

@@ -22,8 +22,8 @@
 #ifndef _3DTI_BINAURALSPATIALIZER_H_
 #define _3DTI_BINAURALSPATIALIZER_H_
 
-#include <BinauralSpatializer/Core.h> 
-#include <BinauralSpatializer/Environment.h>
-#include <BinauralSpatializer/Listener.h>
+#include "BinauralSpatializer/Core.h" 
+#include "BinauralSpatializer/Environment.h"
+#include "BinauralSpatializer/Listener.h"
 
 #endif

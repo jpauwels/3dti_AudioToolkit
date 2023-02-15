@@ -21,7 +21,7 @@
 */
 
 #include <cmath>
-#include <BinauralSpatializer/HRTF.h>
+#include "BinauralSpatializer/HRTF.h"
 #include <iostream>
 #include <cfloat>
 #include <fstream>

@@ -24,8 +24,8 @@
 #ifndef _CNOISE_GENERATOR_H_
 #define _CNOISE_GENERATOR_H_
 
-#include <Common/Buffer.h>
-#include <Common/BiquadFilter.h>
+#include "Common/Buffer.h"
+#include "Common/BiquadFilter.h"
 #include <random>
 
 #define DEFAULT_GAUSSIAN_MEAN 0

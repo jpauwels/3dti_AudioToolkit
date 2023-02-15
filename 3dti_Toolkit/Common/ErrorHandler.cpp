@@ -21,7 +21,7 @@
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
 
-#include <Common/ErrorHandler.h>
+#include "Common/ErrorHandler.h"
 
 #if defined (SWITCH_ON_3DTI_ERRORHANDLER) || defined(_3DTI_ANDROID_ERRORHANDLER)
 

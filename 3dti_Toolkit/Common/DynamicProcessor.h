@@ -23,8 +23,8 @@
 #ifndef _CDYNAMIC_PROCESSOR_H_
 #define _CDYNAMIC_PROCESSOR_H_
 
-#include <Common/EnvelopeDetector.h>
-#include <Common/Buffer.h>
+#include "Common/EnvelopeDetector.h"
+#include "Common/Buffer.h"
 
 namespace Common {
 

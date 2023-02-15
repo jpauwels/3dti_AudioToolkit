@@ -23,7 +23,7 @@
 #ifndef _CENVELOPMENT_DETECTOR_H_
 #define _CENVELOPMENT_DETECTOR_H_
 
-#include <Common/Buffer.h>
+#include "Common/Buffer.h"
 
 namespace Common {
 

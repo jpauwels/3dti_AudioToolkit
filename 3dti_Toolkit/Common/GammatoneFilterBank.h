@@ -24,7 +24,7 @@
 #ifndef _CGAMMATONE_FILTER_BANK_H_
 #define _CGAMMATONE_FILTER_BANK_H_
 
-#include <Common/GammatoneFilter.h>
+#include "Common/GammatoneFilter.h"
 #include <vector>
 #include <memory>
 

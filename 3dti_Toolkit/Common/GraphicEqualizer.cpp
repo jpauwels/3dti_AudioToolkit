@@ -20,8 +20,8 @@
 * \b Acknowledgement: This project has received funding from Spanish Ministerio de Ciencia e Innovación under the SAVLab project (PID2019-107854GB-I00)
 */
 #include <cmath>
-#include <Common/GraphicEqualizer.h>
-#include <Common/ErrorHandler.h>
+#include "Common/GraphicEqualizer.h"
+#include "Common/ErrorHandler.h"
 
 //////////////////////////////////////////////
 // CONSTRUCTOR/DESTRUCTOR

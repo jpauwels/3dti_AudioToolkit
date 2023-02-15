@@ -23,10 +23,10 @@
 #ifndef _CDYNAMIC_COMPRESSOR_STEREO_H_
 #define _CDYNAMIC_COMPRESSOR_STEREO_H_
 
-#include <Common/EnvelopeDetector.h>
-#include <Common/DynamicProcessor.h>
-#include <Common/Buffer.h>
-#include <Common/CommonDefinitions.h>
+#include "Common/EnvelopeDetector.h"
+#include "Common/DynamicProcessor.h"
+#include "Common/Buffer.h"
+#include "Common/CommonDefinitions.h"
 namespace Common {
 
 	/** \details This class applies dynamics compression to stereo audio buffers

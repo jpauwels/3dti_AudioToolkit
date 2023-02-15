@@ -30,12 +30,12 @@
 #include <utility>
 #include <list>
 #include <cstdint>
-#include <BinauralSpatializer/Listener.h>
-#include <Common/Buffer.h>
-#include <Common/ErrorHandler.h>
-#include <Common/Fprocessor.h>
-#include <Common/Magnitudes.h>
-#include <Common/CommonDefinitions.h>
+#include "BinauralSpatializer/Listener.h"
+#include "Common/Buffer.h"
+#include "Common/ErrorHandler.h"
+#include "Common/Fprocessor.h"
+#include "Common/Magnitudes.h"
+#include "Common/CommonDefinitions.h"
 
 
 #ifndef PI 

@@ -23,10 +23,10 @@
 #ifndef _CWAVEGUIDE_H_
 #define _CWAVEGUIDE_H_
 
-#include <Common/Buffer.h>
-#include <Common/AudioState.h>
-#include <Common/Vector3.h>
-#include <boost/circular_buffer.hpp>
+#include "Common/Buffer.h"
+#include "Common/AudioState.h"
+#include "Common/Vector3.h"
+#include "boost/circular_buffer.hpp"
 
 namespace Common {
 	class CWaveguide

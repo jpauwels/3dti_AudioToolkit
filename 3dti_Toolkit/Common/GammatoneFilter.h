@@ -29,7 +29,7 @@
 //I'm not sure that this is correct
 //#define CGAMMATONE_USE_ANTIAILIAING
 
-#include <Common/Buffer.h>
+#include "Common/Buffer.h"
 #include "CommonDefinitions.h"
 
 namespace Common {
