@@ -22,16 +22,16 @@
 #ifndef _CCORE_H_
 #define _CCORE_H_
 
-#include <BinauralSpatializer/HRTF.h>
-#include <BinauralSpatializer/BRIR.h>
-#include <Common/Transform.h>
-#include <Common/AudioState.h>
-#include <BinauralSpatializer/SingleSourceDSP.h>
-#include <Common/Magnitudes.h>
-#include <Common/AIR.h>
-#include <Common/Buffer.h>
-#include <Common/Fprocessor.h>
-#include <Common/CommonDefinitions.h>
+#include "BinauralSpatializer/HRTF.h"
+#include "BinauralSpatializer/BRIR.h"
+#include "Common/Transform.h"
+#include "Common/AudioState.h"
+#include "BinauralSpatializer/SingleSourceDSP.h"
+#include "Common/Magnitudes.h"
+#include "Common/AIR.h"
+#include "Common/Buffer.h"
+#include "Common/Fprocessor.h"
+#include "Common/CommonDefinitions.h"
 #include <vector>
 #include <memory>
 

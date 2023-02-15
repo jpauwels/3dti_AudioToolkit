@@ -23,7 +23,7 @@
 #ifndef _CQUATERNION_H_
 #define _CQUATERNION_H_
 
-#include <Common/Vector3.h>
+#include "Common/Vector3.h"
 #include <iostream>
 
 namespace Common {

@@ -23,12 +23,12 @@
 #ifndef _CCENVIRONMENT_H_
 #define _CCENVIRONMENT_H_
 
-#include <Common/AIR.h>
-#include <BinauralSpatializer/Listener.h>
-#include <Common/Buffer.h>
-#include <Common/Fprocessor.h>
-#include <Common/UPCEnvironment.h>
-#include <Common/CommonDefinitions.h>
+#include "Common/AIR.h"
+#include "BinauralSpatializer/Listener.h"
+#include "Common/Buffer.h"
+#include "Common/Fprocessor.h"
+#include "Common/UPCEnvironment.h"
+#include "Common/CommonDefinitions.h"
 #include <vector>
 #include <memory>
 

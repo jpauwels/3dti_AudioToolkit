@@ -29,7 +29,7 @@
 
 #define _USE_MATH_DEFINES // TODO: Test in windows! Might also be problematic for other platforms??
 #include <cmath>
-#include <Common/GammatoneFilter.h>
+#include "Common/GammatoneFilter.h"
 #include <iomanip>
 
 #ifndef M_PI 

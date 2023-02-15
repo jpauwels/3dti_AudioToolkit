@@ -23,18 +23,18 @@
 #ifndef _CSINGLESOURCEDSP_H_
 #define _CSINGLESOURCEDSP_H_
 
-#include <Common/Buffer.h>
-#include <Common/Transform.h>
-#include <Common/CommonDefinitions.h>
-#include <BinauralSpatializer/Core.h>
-#include <BinauralSpatializer/Listener.h>
-#include <Common/DistanceAttenuator.h>
-#include <Common/FarDistanceEffects.h>
-#include <BinauralSpatializer/ILD.h>
-#include <Common/FarDistanceEffects.h>
-#include <BinauralSpatializer/UPCAnechoic.h>
-#include <Common/FiltersChain.h>
-#include <Common/Waveguide.h>
+#include "Common/Buffer.h"
+#include "Common/Transform.h"
+#include "Common/CommonDefinitions.h"
+#include "BinauralSpatializer/Core.h"
+#include "BinauralSpatializer/Listener.h"
+#include "Common/DistanceAttenuator.h"
+#include "Common/FarDistanceEffects.h"
+#include "BinauralSpatializer/ILD.h"
+#include "Common/FarDistanceEffects.h"
+#include "BinauralSpatializer/UPCAnechoic.h"
+#include "Common/FiltersChain.h"
+#include "Common/Waveguide.h"
 
 //#define USE_UPC_WITHOUT_MEMORY
 #define EPSILON 0.0001f

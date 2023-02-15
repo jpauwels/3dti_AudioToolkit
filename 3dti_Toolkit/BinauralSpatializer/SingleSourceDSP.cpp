@@ -20,12 +20,12 @@
 *
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
-#include <BinauralSpatializer/SingleSourceDSP.h>
-#include <Common/ErrorHandler.h>
+#include "BinauralSpatializer/SingleSourceDSP.h"
+#include "Common/ErrorHandler.h"
 
 //#define USE_PROFILER_SingleSourceDSP
 #ifdef USE_PROFILER_SingleSourceDSP
-#include <Common/Profiler.h>
+#include "Common/Profiler.h"
 CProfilerDataSet dsSSDSPTransform;
 CProfilerDataSet dsSSDSPGetHRIRInterpolated;
 CProfilerDataSet dsSSDSPGetHRIRNoInterpolated;

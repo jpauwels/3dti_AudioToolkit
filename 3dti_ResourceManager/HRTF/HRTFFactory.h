@@ -23,7 +23,7 @@
 #ifndef HRTFFactory_h
 #define HRTFFactory_h
 
-#include <BinauralSpatializer/HRTF.h>
+#include "BinauralSpatializer/HRTF.h"
 #include <string>
 //#include <vector>
 

@@ -40,11 +40,11 @@
 	#define PLATFORM_DEFINED
 #endif
 
-#include <Common/Buffer.h>
-#include <BinauralSpatializer/HRTF.h>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/vector.hpp>
-#include <cereal/types/unordered_map.hpp>
+#include "Common/Buffer.h"
+#include "BinauralSpatializer/HRTF.h"
+#include "cereal/archives/portable_binary.hpp"
+#include "cereal/types/vector.hpp"
+#include "cereal/types/unordered_map.hpp"
 #include <stdint.h>
 
 // Serialization function for orientations

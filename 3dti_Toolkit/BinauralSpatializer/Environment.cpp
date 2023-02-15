@@ -19,16 +19,16 @@
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
 
-#include <BinauralSpatializer/Core.h>
-#include <BinauralSpatializer/SingleSourceDSP.h>
-#include <BinauralSpatializer/Listener.h>
-#include <BinauralSpatializer/Environment.h>
-#include <Common/ErrorHandler.h>
+#include "BinauralSpatializer/Core.h"
+#include "BinauralSpatializer/SingleSourceDSP.h"
+#include "BinauralSpatializer/Listener.h"
+#include "BinauralSpatializer/Environment.h"
+#include "Common/ErrorHandler.h"
 #include <string>
 
 //#define USE_PROFILER_Environment
 #ifdef USE_PROFILER_Environment
-#include <Common/Profiler.h>
+#include "Common/Profiler.h"
 CProfilerDataSet dsEnvEncoder;
 CProfilerDataSet dsEnvConvolver;
 CProfilerDataSet dsEnvInvFFT;

@@ -23,9 +23,9 @@
 #define _CILD_H_
 
 #include <unordered_map>
-#include <Common/FiltersChain.h>
-#include <Common/Buffer.h>
-#include <Common/CommonDefinitions.h>
+#include "Common/FiltersChain.h"
+#include "Common/Buffer.h"
+#include "Common/CommonDefinitions.h"
 
 
 	/** \brief Class to be used as Key in the hash table used by CILD

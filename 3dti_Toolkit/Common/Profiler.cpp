@@ -33,8 +33,8 @@
 #define PLATFORM_DEFINED
 #endif
 
-#include <Common/Profiler.h>
-#include <Common/ErrorHandler.h>
+#include "Common/Profiler.h"
+#include "Common/ErrorHandler.h"
 
 #if defined(PLATFORM_WIN32) || defined (PLATFORM_WIN64)
 #include "Windows.h"

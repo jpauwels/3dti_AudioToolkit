@@ -20,8 +20,8 @@
 * \b Acknowledgement: This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 644051
 */
 
-#include <Common/Waveguide.h>
-#include <Common/ErrorHandler.h>
+#include "Common/Waveguide.h"
+#include "Common/ErrorHandler.h"
 
 constexpr float EPSILON = 0.0001;
 

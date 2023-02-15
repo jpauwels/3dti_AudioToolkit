@@ -23,11 +23,11 @@
 #ifndef BRIRCereal_h
 #define BRIRCereal_h
 
-#include <Common/Buffer.h>
-#include <BinauralSpatializer/BRIR.h>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/vector.hpp>
-#include <cereal/types/unordered_map.hpp>
+#include "Common/Buffer.h"
+#include "BinauralSpatializer/BRIR.h"
+#include "cereal/archives/portable_binary.hpp"
+#include "cereal/types/vector.hpp"
+#include "cereal/types/unordered_map.hpp"
 #include <stdint.h>
 
 // Serialization function for virtual speakers

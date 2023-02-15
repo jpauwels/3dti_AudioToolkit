@@ -24,9 +24,9 @@
 #ifndef _CDYNAMIC_COMPRESSOR_MONO_H_
 #define _CDYNAMIC_COMPRESSOR_MONO_H_
 
-#include <Common/EnvelopeDetector.h>
-#include <Common/DynamicProcessor.h>
-#include <Common/Buffer.h>
+#include "Common/EnvelopeDetector.h"
+#include "Common/DynamicProcessor.h"
+#include "Common/Buffer.h"
 
 namespace Common {
 

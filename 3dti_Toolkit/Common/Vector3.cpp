@@ -30,9 +30,9 @@
 
 #define _USE_MATH_DEFINES // TODO: Test in windows! Might also be problematic for other platforms??
 #include <cmath>
-#include <Common/Vector3.h>
-#include <Common/ErrorHandler.h>
-#include <Common/Conventions.h>
+#include "Common/Vector3.h"
+#include "Common/ErrorHandler.h"
+#include "Common/Conventions.h"
 
 constexpr float _2PI = 2.0f*M_PI;
 

@@ -23,9 +23,9 @@
 #ifndef _CDISTANCE_ATTENUATOR_H_
 #define _CDISTANCE_ATTENUATOR_H_
 
-#include <Common/Buffer.h>
-#include <Common/FiltersChain.h>
-#include <Common/FarDistanceEffects.h>
+#include "Common/Buffer.h"
+#include "Common/FiltersChain.h"
+#include "Common/FarDistanceEffects.h"
 
 class CMagnitudes;
 

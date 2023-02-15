@@ -22,11 +22,11 @@
 
 #include <ostream>
 #include "BRIRFactory.h"
-#include <BinauralSpatializer/BRIR.h>
-#include <Common/ErrorHandler.h>
-#include <SOFA.h>
-#include <SOFAExceptions.h>
-#include <math.h>
+#include "BinauralSpatializer/BRIR.h"
+#include "Common/ErrorHandler.h"
+#include "SOFA.h"
+#include "SOFAExceptions.h"
+#include <cmath>
 
 #define NORTH_AZIMUTH 0
 #define SOUTH_AZIMUTH 180

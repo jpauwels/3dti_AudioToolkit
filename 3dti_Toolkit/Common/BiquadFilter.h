@@ -23,7 +23,7 @@
 #ifndef _CBIQUADILTER_H_
 #define _CBIQUADILTER_H_
 
-#include <Common/Buffer.h>
+#include "Common/Buffer.h"
 #include "CommonDefinitions.h"
 
 namespace Common {

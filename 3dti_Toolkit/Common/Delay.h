@@ -23,9 +23,9 @@
 #ifndef _CDELAY_H_
 #define _CDELAY_H_
 
-#include <Common/Buffer.h>
-#include <Common/FiltersChain.h>
-#include <Common/FarDistanceEffects.h>
+#include "Common/Buffer.h"
+#include "Common/FiltersChain.h"
+#include "Common/FarDistanceEffects.h"
 
 namespace Common
 {

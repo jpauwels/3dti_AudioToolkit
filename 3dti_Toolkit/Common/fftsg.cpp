@@ -1,4 +1,4 @@
-#include <Common/fftsg.h>
+#include "Common/fftsg.h"
 
 //#define USE_CDFT_PTHREADS
 //#define USE_CDFT_WINTHREADS

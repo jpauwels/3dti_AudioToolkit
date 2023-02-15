@@ -38,10 +38,10 @@
 	#define PLATFORM_DEFINED
 #endif
 
-#include <BinauralSpatializer/ILD.h>
-#include <BinauralSpatializer/Listener.h>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/unordered_map.hpp>
+#include "BinauralSpatializer/ILD.h"
+#include "BinauralSpatializer/Listener.h"
+#include "cereal/archives/portable_binary.hpp"
+#include "cereal/types/unordered_map.hpp"
 
 /** \brief Serialization function for ILD key
 *	\param [out] archive for serialization

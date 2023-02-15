@@ -22,10 +22,10 @@
 #ifndef _CGRAPHIC_EQUALIZER_H_
 #define _CGRAPHIC_EQUALIZER_H_
 
-#include <Common/FiltersBank.h>
-// ************************************* #include <Common/EnvelopeDetector.h>
-#include <Common/CommonDefinitions.h>
-#include <Common/BiquadFilter.h>
+#include "Common/FiltersBank.h"
+// ************************************* #include "Common/EnvelopeDetector.h"
+#include "Common/CommonDefinitions.h"
+#include "Common/BiquadFilter.h"
 #include <vector>
 #include <memory>
 

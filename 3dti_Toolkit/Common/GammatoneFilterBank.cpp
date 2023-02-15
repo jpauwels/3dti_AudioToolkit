@@ -22,8 +22,8 @@
 */
 
 #include <cmath>
-#include <Common/GammatoneFilterBank.h>
-#include <Common/ErrorHandler.h>
+#include "Common/GammatoneFilterBank.h"
+#include "Common/ErrorHandler.h"
 
 namespace Common {
 

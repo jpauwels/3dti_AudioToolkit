@@ -23,7 +23,7 @@
 #ifndef BRIRFactory_h
 #define BRIRFactory_h
 
-#include <BinauralSpatializer/BRIR.h>
+#include "BinauralSpatializer/BRIR.h"
 #include <string>
 
 namespace BRIR

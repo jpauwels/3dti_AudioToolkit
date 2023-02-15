@@ -24,12 +24,12 @@
 #ifndef _CLISTENER_H_
 #define _CLISTENER_H_
 
-#include <Common/Transform.h>
-#include <Common/Magnitudes.h>
-#include <Common/Buffer.h>
-#include <Common/AudioState.h>
-#include <HAHLSimulation/HearingAidSim.h>
-#include <BinauralSpatializer/ILD.h>
+#include "Common/Transform.h"
+#include "Common/Magnitudes.h"
+#include "Common/Buffer.h"
+#include "Common/AudioState.h"
+#include "HAHLSimulation/HearingAidSim.h"
+#include "BinauralSpatializer/ILD.h"
 
 #include <vector>
 #include <memory>
