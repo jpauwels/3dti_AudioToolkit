@@ -42,7 +42,7 @@ namespace Common {
 		unsigned int NChannels,
 		class stored
 	>
-		class CBuffer : public std::vector<stored, std::allocator<stored>>
+	class CBuffer : public std::vector<stored, std::allocator<stored>>
 	{
 	public:
 		using std::vector<stored>::vector;    //   inherit all std::vector constructors
