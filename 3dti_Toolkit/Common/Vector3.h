@@ -38,9 +38,9 @@ namespace Common {
 
 		static const CVector3 ZERO;		///< Predefined ZERO vector (0, 0, 0)
 
-	//
-	// Predefined rotation axis for rotating in basic directions, using angle-axis rotation
-	//
+		//
+		// Predefined rotation axis for rotating in basic directions, using angle-axis rotation
+		//
 
 		static const CVector3 TO_LEFT;       ///< Predefined Left rotation axis, for angle-axis rotation
 		static const CVector3 TO_RIGHT;      ///< Predefined Right rotation axis, for angle-axis rotation
@@ -50,9 +50,9 @@ namespace Common {
 		static const CVector3 TO_ROLL_LEFT;  ///< Predefined forward rotation axis, for angle-axis rotation
 		static const CVector3 TO_ROLL_RIGHT; ///< Predefined backward rotation axis, for angle-axis rotation
 
-	//
-	// Constructors/Destructors
-	//
+		//
+		// Constructors/Destructors
+		//
 
 		/** \brief Default constructor
 		*	\details By default, sets \link ZERO \endlink vector

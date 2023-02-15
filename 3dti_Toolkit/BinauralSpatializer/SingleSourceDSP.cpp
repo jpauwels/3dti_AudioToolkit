@@ -289,6 +289,7 @@ namespace Binaural {
 			outRightBuffer.Fill(ownerCore->GetAudioState().bufferSize, 0.0f);
 		}
 	}
+
 	// Process data from input buffer to generate anechoic spatialization (direct path). Overloaded: using internal buffer
 	void CSingleSourceDSP::ProcessAnechoic(CStereoBuffer<float> & outBuffer)
 	{
@@ -375,6 +376,7 @@ namespace Binaural {
 			WATCH(WV_ANECHOIC_OUTPUT_RIGHT, outRightBuffer, CMonoBuffer<float>);
 		}
 	}
+
 	// Process data from input buffer to generate anechoic spatialization (direct path)
 	void CSingleSourceDSP::ProcessAnechoic(const CMonoBuffer<float> & inBuffer, CStereoBuffer<float> & outBuffer)
 	{
