@@ -82,12 +82,12 @@ namespace Common {
 		// Conversions (We can implement more if we need them)
 		//
 
-			/** \brief Get a quaternion from an axis and angle representation
-			*	\param [in] _axis rotation axis
-			*	\param [in] _angle amount or angle of rotation, in radians
-			*	\retval quaternion quaternion equivalent to the given axis-angle representation
-			*   \eh Nothing is reported to the error handler.
-			*/
+		/** \brief Get a quaternion from an axis and angle representation
+		*	\param [in] _axis rotation axis
+		*	\param [in] _angle amount or angle of rotation, in radians
+		*	\retval quaternion quaternion equivalent to the given axis-angle representation
+		*   \eh Nothing is reported to the error handler.
+		*/
 		static CQuaternion FromAxisAngle(CVector3 _axis, float _angle);
 
 		/** \brief Get axis and angle representation from a quaternion
@@ -120,11 +120,11 @@ namespace Common {
 		// Basic operations
 		//
 
-			/** \brief Rotate quaternion with another quaternion
-			*	\details Equivalent to quaternion product
-			*	\param [in] _rightHand other quaternion
-			*   \eh Nothing is reported to the error handler.
-			*/
+		/** \brief Rotate quaternion with another quaternion
+		*	\details Equivalent to quaternion product
+		*	\param [in] _rightHand other quaternion
+		*   \eh Nothing is reported to the error handler.
+		*/
 		void Rotate(CQuaternion _rightHand);
 
 		/** \brief Rotate a vector with another quaternion
@@ -138,9 +138,9 @@ namespace Common {
 		// Operands
 		//
 
-			/** \brief Quaternion product
-			*	\details Quaternion product is not commutative. Used for rotating.
-			*/
+		/** \brief Quaternion product
+		*	\details Quaternion product is not commutative. Used for rotating.
+		*/
 		const CQuaternion operator* (const CQuaternion _rightHand) const;
 
 		/** \brief Get the quaternion inverse
