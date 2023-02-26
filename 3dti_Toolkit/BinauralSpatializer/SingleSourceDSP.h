@@ -74,13 +74,13 @@ namespace Binaural {
 		*	\sa ProcessAnechoic, ProcessVirtualAmbisonicReverb
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetBuffer(const CMonoBuffer<float> & buffer);					
+		void SetBuffer(const std::span<const float> & buffer);
 
-		/** \brief Get copy of internal buffer
+		/** \brief Get const reference to internal buffer
 		*	\retval buffer internal buffer content
 		*   \eh Nothing is reported to the error handler.
 		*/
-		CMonoBuffer<float> GetBuffer() const;						
+        const std::span<const float> & GetBuffer() const;
 
 		/** \brief Move source (position and orientation)
 		*	\param [in] _sourceTransform new position and orientation of source
@@ -296,7 +296,7 @@ namespace Binaural {
 		*   \deprecated { Use instead SetBuffer(inBuffer) and later ProcessAnechoic(CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer)}
 		*/
 		//[[deprecated ("Use instead SetBuffer(inBuffer) and later ProcessAnechoic(CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer)")]]
-		void ProcessAnechoic(const CMonoBuffer<float> & inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer);
+		void ProcessAnechoic(const std::span<const float> & inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer);
 
 		/** \brief Process data from input buffer to generate anechoic spatialization (direct path)
 		*	\param [in] inBuffer input buffer with anechoic audio
@@ -305,7 +305,7 @@ namespace Binaural {
 		*   \deprecated { Use instead SetBuffer(inBuffer) and later ProcessAnechoic(CStereoBuffer<float> & outBuffer)}
 		*/
 		//[[deprecated ("Use instead SetBuffer(inBuffer) and later ProcessAnechoic(CStereoBuffer<float> & outBuffer)")]]
-		void ProcessAnechoic(const CMonoBuffer<float> & inBuffer, CStereoBuffer<float> & outBuffer);
+		void ProcessAnechoic(const std::span<const float> & inBuffer, CStereoBuffer<float> & outBuffer);
 
 		/** \brief Returns the azimuth of the specified ear.
 		*	\param [in] ear must be Common::T_ear::LEFT or Common::T_ear::RIGHT
@@ -349,7 +349,7 @@ namespace Binaural {
 		const float & GetCurrentDistanceSourceListener() const;
 
 
-		void ProcessAnechoic(const CMonoBuffer<float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth);
+		void ProcessAnechoic(const std::span<const float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth);
 
 		// Make the spatialization using HRTF convolution
 		void ProcessHRTF(const CMonoBuffer<float> &inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, float leftAzimuth, float leftElevation, float rightAzimuth, float rightElevation, float _azCenter, float _elCenter);
@@ -360,7 +360,7 @@ namespace Binaural {
 		// Apply distance attenuation
 		void ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int sampleRate, const float distance);
 		// Apply Far distance effect
-		void ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, const float distance);										
+		void ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, float distance);										
 		// Apply Near field effects (ILD)		
 		void ProcessNearFieldEffect(CMonoBuffer<float> &leftBuffer, CMonoBuffer<float> &rightBuffer, float distance, float interauralAzimuth);				
 		

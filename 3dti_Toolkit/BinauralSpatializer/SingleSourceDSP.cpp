@@ -106,8 +106,8 @@ namespace Binaural {
 	//////////////////////////////////
 	
 	/// Update internal buffer
-	void CSingleSourceDSP::SetBuffer(const CMonoBuffer<float> & buffer)
-	{						
+	void CSingleSourceDSP::SetBuffer(const std::span<const float> & buffer)
+	{
 		Common::CTransform listenerTransform = ownerCore->GetListener()->GetListenerTransform();
 		channelToListener.PushBack(buffer, currentSourceTransform.GetPosition(), listenerTransform.GetPosition(), ownerCore->GetAudioState(), ownerCore->GetMagnitudes().GetSoundSpeed());
 		readyForAnechoic = true;
@@ -115,7 +115,7 @@ namespace Binaural {
 	}
 
 	/// Get copy of internal buffer
-	CMonoBuffer<float> CSingleSourceDSP::GetBuffer() const
+    const std::span<const float> & CSingleSourceDSP::GetBuffer() const
 	{
 		// TO DO: check readyForAnechoic and/or readyForAnechoic flags?
 		ASSERT(channelToListener.GetMostRecentBuffer().size() > 0, RESULT_ERROR_NOTSET, "Getting empty buffer from single source DSP", "");
@@ -124,7 +124,7 @@ namespace Binaural {
 	
 	// Set source tranform (position and orientation)
 	void CSingleSourceDSP::SetSourceTransform(const Common::CTransform & newTransform)
-	{	
+	{
 		currentSourceTransform = newTransform;		// Save source Transform
 		CalculateCurrentSourceCoordinates();		// Calculated derived parameters
 	}
@@ -300,11 +300,11 @@ namespace Binaural {
 	}
 
 	// DEPRECATED Process data from input buffer to generate anechoic spatialization (direct path)
-	void CSingleSourceDSP::ProcessAnechoic(const CMonoBuffer<float> & _inBuffer/* FIXME: can be const ref */, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer) {
+	void CSingleSourceDSP::ProcessAnechoic(const std::span<const float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer) {
 		ProcessAnechoic(_inBuffer, outLeftBuffer, outRightBuffer, currentVectorToListener, currentDistanceToListener, currentLeftElevation, currentLeftAzimuth, currentRightElevation, currentRightAzimuth, currentCenterElevation, currentCenterAzimuth, currentInterauralAzimuth);
 	}
 
-	void CSingleSourceDSP::ProcessAnechoic(const CMonoBuffer<float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth)
+	void CSingleSourceDSP::ProcessAnechoic(const std::span<const float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth)
 	{
 		ASSERT(_inBuffer.size() == ownerCore->GetAudioState().bufferSize, RESULT_ERROR_BADSIZE, "InBuffer size has to be equal to the input size indicated by the Core::SetAudioState method", "");
 		
@@ -330,7 +330,7 @@ namespace Binaural {
 		
 		if (_inBuffer.size() == ownerCore->GetAudioState().bufferSize)
 		{
-			CMonoBuffer<float> inBuffer = _inBuffer; //We have to copy input buffer to a new buffer because the distance effects methods work changing the input buffer				
+			CMonoBuffer<float> inBuffer(_inBuffer.begin(), _inBuffer.end()); //We have to copy input buffer to a new buffer because the distance effects methods work changing the input buffer
 			
 			//Check if the source is in the same position as the listener head. If yes, do not apply spatialization
 			if (distanceToListener <= ownerCore->GetListener()->GetHeadRadius())
@@ -378,7 +378,7 @@ namespace Binaural {
 	}
 
 	// Process data from input buffer to generate anechoic spatialization (direct path)
-	void CSingleSourceDSP::ProcessAnechoic(const CMonoBuffer<float> & inBuffer, CStereoBuffer<float> & outBuffer)
+	void CSingleSourceDSP::ProcessAnechoic(const std::span<const float> & inBuffer, CStereoBuffer<float> & outBuffer)
 	{
 		CMonoBuffer<float> outLeftBuffer;
 		CMonoBuffer<float> outRightBuffer;
