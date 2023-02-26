@@ -157,11 +157,10 @@ namespace Common {
 		*	\param [in] previousAttenuation_Channel1 Last frame attenuation, for mono buffers or left channel of stereo buffer
 		*	\param [in] previousAttenuation_Channel2 Last frame attenuation, for right channel of stereo buffer
 		*	\param [in] attenuation Current frame attenuation
-		*	\param [in] bufferSize Number of samples in the frame
 		*	\param [in] sampleRate sample rate, in Hz
 		*   \eh On error, an error code is reported to the error handler.
 		*/
-		void ApplyGainExponentially(float &previousAttenuation_Channel1, float &previousAttenuation_Channel2, const float attenuation, const int bufferSize, const int sampleRate)
+		void ApplyGainExponentially(float &previousAttenuation_Channel1, float &previousAttenuation_Channel2, const float attenuation, const int sampleRate)
 		{
 			float previousGainChannel2 = previousAttenuation_Channel2;
 			float gainChannel2 = 0.0f;
@@ -179,7 +178,7 @@ namespace Common {
 			if (nChannels == 1)
 			{
 				int j = 0;
-				for (int i = 0; i < (*this).size(); i++) {
+				while (j < (*this).size()) {
 					gainChannel1 = (attenuation - previousGainChannel1)* alpha + previousGainChannel1;
 					(*this)[j++] *= gainChannel1;
 					previousGainChannel1 = gainChannel1;
@@ -188,9 +187,8 @@ namespace Common {
 			}
 			else if (nChannels == 2)
 			{
-				int j = 0;
-				int halfBufferSize = (int)(*this).size() / 2;
-				for (int i = 0; i < halfBufferSize; i++) {
+				size_t j = 0;
+				while (j < (*this).size()) {
 					gainChannel1 = (attenuation - previousGainChannel1)* alpha + previousGainChannel1;
 					(*this)[j++] *= gainChannel1;
 					previousGainChannel1 = gainChannel1;

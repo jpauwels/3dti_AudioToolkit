@@ -344,8 +344,8 @@ namespace Binaural {
 			ProcessFarDistanceEffect(inBuffer, distanceToListener);
 			
 			// Apply distance attenuation
-			ProcessDistanceAttenuationAnechoic(inBuffer, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate, distanceToListener);
-			
+			ProcessDistanceAttenuationAnechoic(inBuffer, ownerCore->GetAudioState().sampleRate, distanceToListener);
+
 			//Apply Spatialization
 			if( spatializationMode == TSpatializationMode::HighQuality ) {
 				ProcessHRTF(inBuffer, outLeftBuffer, outRightBuffer, leftAzimuth, leftElevation, rightAzimuth, rightElevation, centerAzimuth, centerElevation);		// Apply HRTF spatialization effect
@@ -631,13 +631,12 @@ namespace Binaural {
 	}
 
 	/// Apply distance attenuation
-	void CSingleSourceDSP::ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int bufferSize, const int sampleRate, const float distance)
-	{		
-		float distAttConstant = ownerCore->GetMagnitudes().GetAnechoicDistanceAttenuation();		
-
+	void CSingleSourceDSP::ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int sampleRate, const float distance)
+	{
 		if (IsDistanceAttenuationEnabledAnechoic())
 		{
-			distanceAttenuatorAnechoic.Process(buffer, distance, distAttConstant, bufferSize, sampleRate,attenuationSmooth);			
+			float distAttConstant = ownerCore->GetMagnitudes().GetAnechoicDistanceAttenuation();
+			distanceAttenuatorAnechoic.Process(buffer, distance, distAttConstant, sampleRate, attenuationSmooth);
 		}				
 	}
 	

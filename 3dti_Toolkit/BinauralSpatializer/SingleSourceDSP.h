@@ -358,7 +358,7 @@ namespace Binaural {
 		void ProcessILDSpatialization(CMonoBuffer<float> &leftBuffer, CMonoBuffer<float> &rightBuffer, float distance_m, float azimuth);		
 		
 		// Apply distance attenuation
-		void ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int bufferSize, const int sampleRate, const float distance);
+		void ProcessDistanceAttenuationAnechoic(CMonoBuffer<float> &buffer, const int sampleRate, const float distance);
 		// Apply Far distance effect
 		void ProcessFarDistanceEffect(CMonoBuffer<float> &buffer, const float distance);										
 		// Apply Near field effects (ILD)		

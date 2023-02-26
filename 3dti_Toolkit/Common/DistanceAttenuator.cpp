@@ -51,22 +51,22 @@ namespace Common {
 
 	//////////////////////////////////////////////
 
-	void CDistanceAttenuator::Process(CMonoBuffer<float> & buffer, float distance, float attenuationConstant, int bufferSize, int sampleRate, bool smooth, float extraAttennuation_dB)
+	void CDistanceAttenuator::Process(CMonoBuffer<float> & buffer, const float distance, const float attenuationConstant, const int sampleRate, const bool smooth, const float extraAttennuation_dB)
 	{
 #ifdef USE_PROFILER_DistanceAttenuator
 		PROFILER3DTI.RelativeSampleStart(dsDAAttenuation);
 #endif
+		if (buffer.size() != 0) {
+			// Attenuation is computed independently
+			 float attenuation = GetDistanceAttenuation(attenuationConstant, distance, extraAttennuation_dB);
+			 float previousAttenuation = previousAttenuation_Channel;
+			 if (!smooth) {
+				 previousAttenuation = attenuation; //no smoothing, previousAttenuattion ignored
+			 }
 
-		// Attenuation is computed independently
-		float attenuation = GetDistanceAttenuation(attenuationConstant, distance, extraAttennuation_dB);
-
-		//Apply attenuation gradually using Exponential Moving Average method
-		float unnecessary_fixme;
-		if (smooth) {
-			if (buffer.size() != 0) buffer.ApplyGainExponentially(previousAttenuation_Channel, unnecessary_fixme, attenuation, bufferSize, sampleRate);
-		}
-		else {
-			if (buffer.size() != 0) buffer.ApplyGainExponentially(attenuation, unnecessary_fixme, attenuation, bufferSize, sampleRate); //no smoothing, previousAttenuattion ignored
+			//Apply attenuation gradually using Exponential Moving Average method
+			float unnecessary_fixme;
+			buffer.ApplyGainExponentially(previousAttenuation, unnecessary_fixme, attenuation, sampleRate);
 		}
 #ifdef USE_PROFILER_DistanceAttenuator
 		PROFILER3DTI.RelativeSampleEnd(dsDAAttenuation);
