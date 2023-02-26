@@ -616,15 +616,14 @@ namespace Binaural {
 			Common::CTransform sourceTransform = eachSource->GetCurrentSourceTransform();
 			Common::CVector3 vectorToSource = ownerCore->GetListener()->GetListenerTransform().GetVectorTo(sourceTransform);
 
-			float sourceDistance = vectorToSource.GetDistance();
-
 			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation
-			float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
 			if (eachSource->IsDistanceAttenuationEnabledReverb()) {
-				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate);
+				float sourceDistance = vectorToSource.GetDistance();
+				float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
+				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().sampleRate);
 			}
 			// Go trough each sample
 			for (int nSample = 0; nSample < samplesInBuffer; nSample++)
@@ -834,15 +833,14 @@ namespace Binaural {
 				sinAcosE = sinAzimuth * cosElevation;
 			}
 
-			float sourceDistance = vectorToSource.GetDistance();
-
 			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation
-			float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
 			if (eachSource->IsDistanceAttenuationEnabledReverb()) {
-				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate);
+				float sourceDistance = vectorToSource.GetDistance();
+				float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
+				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().sampleRate);
 			}
 			// Go trough each sample
 			for (int nSample = 0; nSample < samplesInBuffer; nSample++)
@@ -1061,15 +1059,14 @@ namespace Binaural {
 				sinAcosE = sinAzimuth * cosElevation;
 			}
 
-			float sourceDistance = vectorToSource.GetDistance();
-
 			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation
-			float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
 			if (eachSource->IsDistanceAttenuationEnabledReverb()) {
-				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate);
+				float sourceDistance = vectorToSource.GetDistance();
+				float distanceAttenuation_ReverbConstant = ownerCore->GetMagnitudes().GetReverbDistanceAttenuation();
+				eachSource->distanceAttenuatorReverb.Process(sourceBuffer, sourceDistance, distanceAttenuation_ReverbConstant, ownerCore->GetAudioState().sampleRate);
 			}
 			// Go trough each sample
 			for (int nSample = 0; nSample < samplesInBuffer; nSample++)
