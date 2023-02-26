@@ -616,7 +616,8 @@ namespace Binaural {
 			Common::CTransform sourceTransform = eachSource->GetCurrentSourceTransform();
 			Common::CVector3 vectorToSource = ownerCore->GetListener()->GetListenerTransform().GetVectorTo(sourceTransform);
 
-			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
+			const std::span<const float> sourceSpan = eachSource->GetBuffer();
+			CMonoBuffer<float> sourceBuffer(sourceSpan.begin(), sourceSpan.end());
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation
@@ -833,7 +834,8 @@ namespace Binaural {
 				sinAcosE = sinAzimuth * cosElevation;
 			}
 
-			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
+			const std::span<const float> sourceSpan = eachSource->GetBuffer();
+			CMonoBuffer<float> sourceBuffer(sourceSpan.begin(), sourceSpan.end());
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation
@@ -1059,7 +1061,8 @@ namespace Binaural {
 				sinAcosE = sinAzimuth * cosElevation;
 			}
 
-			CMonoBuffer<float> sourceBuffer = eachSource->GetBuffer();
+			const std::span<const float> sourceSpan = eachSource->GetBuffer();
+			CMonoBuffer<float> sourceBuffer(sourceSpan.begin(), sourceSpan.end());
 			//ASSERT(sourceBuffer.size() > 0, RESULT_ERROR_NOTSET, "Attempt to process virtual ambisonics reverb without previously feeding audio source buffers", "");
 
 			//Apply Distance Attenuation

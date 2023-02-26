@@ -23,6 +23,7 @@
 #ifndef _CWAVEGUIDE_H_
 #define _CWAVEGUIDE_H_
 
+#include <span>
 #include "Common/Buffer.h"
 #include "Common/AudioState.h"
 #include "Common/Vector3.h"
@@ -57,7 +58,7 @@ namespace Common {
 
 		/** \brief Insert a new frame into the waveguide
 		*/		
-		void PushBack(const CMonoBuffer<float> & inputbuffer, const CVector3 & sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& audioState, float soundSpeed);
+		void PushBack(const std::span<const float> & inputbuffer, const CVector3 & sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& audioState, float soundSpeed);
 		
 		/** \brief Get next frame to be processed after pass throught the waveguide
 		*/
@@ -65,7 +66,7 @@ namespace Common {
 		
 		/** \brief Get most recent Buffer inserted. This is the last buffer inserted using PushBack the method.
 		*/
-		const CMonoBuffer<float> & GetMostRecentBuffer() const;
+        const std::span<const float> & GetMostRecentBuffer() const;
 				
 		/** \brief Reset waveguide to an initial state 
 		*/
@@ -96,7 +97,7 @@ namespace Common {
 		};
 
 		/// Processes the input buffer according to the movement of the source.
-		void ProcessSourceMovement(const CMonoBuffer<float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed);		
+		void ProcessSourceMovement(const std::span<const float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed);		
 		/// Processes the existing samples in the waveguide to obtain an output buffer according to the new listener position.
 		void ProcessListenerMovement(CMonoBuffer<float> & outbuffer, const Common::TAudioStateStruct& _audioState, CVector3 & sourcePositionWhenWasEmitted, const CVector3 & _listenerPosition, float soundSpeed);
 
@@ -114,9 +115,9 @@ namespace Common {
 		void RsetCirculaBuffer(size_t newSize);
 		
 		/// Execute a buffer expansion or compression
-		void ProcessExpansionCompressionMethod(const CMonoBuffer<float>& input, CMonoBuffer<float>& output);
+		void ProcessExpansionCompressionMethod(const std::span<const float>& input, CMonoBuffer<float>& output);
 		/// Execute a buffer expansion or compression, and introduce the samples directly into the circular buffer
-		void ProcessExpansionCompressionMethod(const CMonoBuffer<float>& input, int outputSize);		
+		void ProcessExpansionCompressionMethod(const std::span<const float>& input, int outputSize);		
 
 		/// Initialize the source Position Buffer at the begining. It is going to be supposed that the source was in that position since ever.
 		void InitSourcePositionBuffer(int numberOFZeroSamples, const CVector3 & sourcePosition);
@@ -143,7 +144,7 @@ namespace Common {
 		// Vars
 		///////////////			   		 	  
 		bool enablePropagationDelay;					/// To store if the propagation delay is enabled or not		
-		CMonoBuffer<float> mostRecentBuffer;			/// To store the last buffer introduced into the waveguide
+        std::span<const float> mostRecentBuffer;			/// To store the last buffer introduced into the waveguide
 		boost::circular_buffer<float> circular_buffer;	/// To store the samples into the waveguide			
 		
 		std::vector<TSourcePosition> sourcePositionsBuffer;	/// To store the source positions in each frame
