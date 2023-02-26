@@ -45,7 +45,7 @@ namespace Common {
 
 	
 	/// Insert the new frame into the waveguide
-	void CWaveguide::PushBack(const CMonoBuffer<float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed) {
+	void CWaveguide::PushBack(const std::span<const float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed) {
 		// Save a copy of this most recent Buffer
 		mostRecentBuffer = _inputBuffer; 						
 		
@@ -62,7 +62,7 @@ namespace Common {
 		
 		// if the propagation delay is not activated, just return the last input buffer
 		if (!enablePropagationDelay) { 
-			outbuffer = mostRecentBuffer; 
+			outbuffer = CMonoBuffer<float>(mostRecentBuffer.begin(), mostRecentBuffer.end());
 		}
 		else {
 			// Pop really doesn't pop. The next time a buffer is pushed, it will be removed.  		
@@ -71,7 +71,7 @@ namespace Common {
 	}
 
 	/// Return last frame introduced into the waveguide
-	const CMonoBuffer<float> & CWaveguide::GetMostRecentBuffer() const
+	const std::span<const float> & CWaveguide::GetMostRecentBuffer() const
 	{
 		return mostRecentBuffer;
 	}
@@ -86,7 +86,7 @@ namespace Common {
 		circular_buffer.clear();						// reset the circular buffer	
 		SetCirculaBufferCapacity(0);
 		sourcePositionsBuffer.clear();					// reset the source position buffer
-		mostRecentBuffer.clear();
+		mostRecentBuffer = std::span<const float>();
 		// Go back to previous state
 		enablePropagationDelay = previousPropagationDelayState;		
 	}
@@ -95,7 +95,7 @@ namespace Common {
 	// PRIVATE METHODS
 	///////////////////////
 	
-	void CWaveguide::ProcessSourceMovement(const CMonoBuffer<float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed) {		
+	void CWaveguide::ProcessSourceMovement(const std::span<const float> & _inputBuffer, const CVector3 & _sourcePosition, const CVector3 & _listenerPosition, const Common::TAudioStateStruct& _audioState, float _soundSpeed) {
 		// First time we initialized the listener position							
 		if (!previousListenerPositionInitialized) { previousListenerPosition = _listenerPosition; previousListenerPositionInitialized = true; }
 		
@@ -269,7 +269,7 @@ namespace Common {
 	/////////////////////////
 
 	/// Execute a buffer expansion or compression
-	void CWaveguide::ProcessExpansionCompressionMethod(const CMonoBuffer<float>& input, CMonoBuffer<float>& output)
+	void CWaveguide::ProcessExpansionCompressionMethod(const std::span<const float>& input, CMonoBuffer<float>& output)
 	{
 		int outputSize = output.size();
 		//Calculate the compresion factor. See technical report
@@ -300,7 +300,7 @@ namespace Common {
 	}
 
 	/// Execute a buffer expansion or compression
-	void CWaveguide::ProcessExpansionCompressionMethod(const CMonoBuffer<float>& input, int outputSize)
+	void CWaveguide::ProcessExpansionCompressionMethod(const std::span<const float>& input, int outputSize)
 	{		
 		//Calculate the compresion factor. See technical report
 		float position = 0;
