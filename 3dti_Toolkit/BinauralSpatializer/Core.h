@@ -131,6 +131,11 @@ public:
      */
     shared_ptr<CEnvironment> CreateEnvironment();
     
+    /** \brief Get all environments
+     *  \retval const reference to a vector containing all environments
+     */
+    const vector<shared_ptr<CEnvironment>> & GetEnvironments() const;
+
     /** \brief Removes one environment
      *	\param [in] environment shared pointer to remove
 	 *   \eh On success, RESULT_OK is reported to the error handler.
@@ -149,6 +154,11 @@ public:
      */
     shared_ptr<CSingleSourceDSP> CreateSingleSourceDSP();
     
+    /** \brief Get all sources
+     *  \retval const reference to a vector containing all sources
+     */
+    const vector<shared_ptr<CSingleSourceDSP>> & GetSources() const;
+
     /** \brief Removes one audio source for spatialization
      *	\param [in] source shared pointer of audio source to remove
 	 *   \eh On success, RESULT_OK is reported to the error handler.

@@ -144,7 +144,11 @@ namespace Binaural {
 		}
     }
 
-    
+	const vector<shared_ptr<CEnvironment>> & CCore::GetEnvironments() const
+	{
+		return environments;
+	}
+
     // Stateless privately called version
     void CCore::RemoveEnvironment(shared_ptr<CEnvironment> environment)
     {
@@ -191,6 +195,11 @@ namespace Binaural {
 			ASSERT(false, RESULT_ERROR_BADALLOC, ba.what(), "");
 			return nullptr;
 		}
+	}
+
+	const vector<shared_ptr<CSingleSourceDSP>> & CCore::GetSources() const
+	{
+		return audioSources;
 	}
 
 	// Stateless privately called version
