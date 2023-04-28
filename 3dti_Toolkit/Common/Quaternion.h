@@ -95,7 +95,7 @@ namespace Common {
 		*	\param [out] _angle amount or angle of rotation, in radians
 		*   \eh Warnings may be reported to the error handler
 		*/
-		void ToAxisAngle(CVector3& _axis, float& _angle);
+		void ToAxisAngle(CVector3& _axis, float& _angle) const;
 
 		/** \brief Get a quaternion from a roll-pitch-yaw representation
 		*   \details This representation corresponds to intrinsic Tait-Bryan angles with sequence: yaw-pitch-roll
@@ -114,7 +114,7 @@ namespace Common {
 		*	\param [out] yaw yaw angle in radians
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void ToYawPitchRoll(float& yaw, float& pitch, float& roll);
+		void ToYawPitchRoll(float& yaw, float& pitch, float& roll) const;
 
 		//
 		// Basic operations

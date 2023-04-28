@@ -146,7 +146,7 @@ namespace Binaural
 	}
 	
 	//Get the flag for customized ITD process enabling
-	bool CListener::IsCustomizedITDEnabled() 
+	bool CListener::IsCustomizedITDEnabled() const
 	{ 
 		return listenerHRTF->IsHRTFCustomizedITDEnabled(); 
 	}

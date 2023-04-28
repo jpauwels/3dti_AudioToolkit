@@ -144,7 +144,7 @@ namespace Common {
 	//////////////////////////////////////////////
 
 		// Get axis and angle from a quaternion
-	void CQuaternion::ToAxisAngle(CVector3& _axis, float& _angle)
+	void CQuaternion::ToAxisAngle(CVector3& _axis, float& _angle) const
 	{
 		float sqrLength = x*x + y*y + z*z;
 		if (sqrLength > 0.0f)
@@ -194,7 +194,7 @@ namespace Common {
 	//////////////////////////////////////////////
 
 		// Get roll-pitch-yaw representation from a quaternion
-	void CQuaternion::ToYawPitchRoll(float& yaw, float& pitch, float& roll)
+	void CQuaternion::ToYawPitchRoll(float& yaw, float& pitch, float& roll) const
 	{
 		// Get vector part of quaternion and extract up, forward and right axis values
 		CVector3 vectorPart = CVector3(x, y, z);

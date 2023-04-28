@@ -106,7 +106,7 @@ namespace Binaural {
 	//////////////////////////////////
 	
 	/// Update internal buffer
-	void CSingleSourceDSP::SetBuffer(CMonoBuffer<float> & buffer)
+	void CSingleSourceDSP::SetBuffer(const CMonoBuffer<float> & buffer)
 	{						
 		Common::CTransform listenerTransform = ownerCore->GetListener()->GetListenerTransform();
 		channelToListener.PushBack(buffer, currentSourceTransform.GetPosition(), listenerTransform.GetPosition(), ownerCore->GetAudioState(), ownerCore->GetMagnitudes().GetSoundSpeed());

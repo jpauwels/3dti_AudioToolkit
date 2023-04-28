@@ -219,7 +219,7 @@ namespace Binaural
 		*	\retval HRTFCustomizedITD if true, the HRTF ITD customization process based on the head circumference is enabled
 		*   \eh Nothing is reported to the error handler.
 		*/
-		bool IsHRTFCustomizedITDEnabled();
+		bool IsHRTFCustomizedITDEnabled() const;
 
 		/** \brief Get interpolated HRIR buffer with Delay, for one ear
 		*	\param [in] ear for which ear we want to get the HRIR 
