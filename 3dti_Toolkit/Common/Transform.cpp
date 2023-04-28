@@ -58,14 +58,14 @@ namespace Common {
 
 	//////////////////////////////////////////////
 
-	CVector3 CTransform::GetPosition()
+	CVector3 CTransform::GetPosition() const
 	{
 		return position;
 	}
 
 	//////////////////////////////////////////////
 
-	CQuaternion CTransform::GetOrientation()
+	CQuaternion CTransform::GetOrientation() const
 	{
 		return orientation;
 	}

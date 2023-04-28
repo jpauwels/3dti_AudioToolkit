@@ -125,7 +125,7 @@ class CHRTF;
 		*	\retval customizzedITDEnabled if true, customized ITD process is enabled
 		*   \eh Nothing is reported to the error handler.
 		*/
-		bool IsCustomizedITDEnabled();
+		bool IsCustomizedITDEnabled() const;
 
 		/** \brief Get position and orientation of one listener ear
 		*	\param [in] ear listener ear for wich we want to get transform

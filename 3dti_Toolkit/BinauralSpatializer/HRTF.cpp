@@ -177,7 +177,7 @@ namespace Binaural
 		enableCustomizedITD = false;
 	}
 
-	bool CHRTF::IsHRTFCustomizedITDEnabled() 
+	bool CHRTF::IsHRTFCustomizedITDEnabled() const
 	{
 		return enableCustomizedITD;
 	}

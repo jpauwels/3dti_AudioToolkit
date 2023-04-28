@@ -74,7 +74,7 @@ namespace Binaural {
 		*	\sa ProcessAnechoic, ProcessVirtualAmbisonicReverb
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetBuffer(CMonoBuffer<float> & buffer);					
+		void SetBuffer(const CMonoBuffer<float> & buffer);					
 
 		/** \brief Get copy of internal buffer
 		*	\retval buffer internal buffer content
