@@ -74,8 +74,8 @@ namespace Binaural {
 		return magnitudes;
 	}
 
-	// Get physical magnitudes
-	shared_ptr<CListener> CCore::GetListener() const
+	// Get listener
+	std::shared_ptr<CListener> CCore::GetListener() const
 	{
 		if (listener!=nullptr) {
 			return listener;
@@ -94,7 +94,7 @@ namespace Binaural {
 	}
  
     // Create a new listener
-    shared_ptr<CListener> CCore::CreateListener(float listenerRadius)
+    std::shared_ptr<CListener> CCore::CreateListener(float listenerRadius)
     {
 		if (!listener) {
 			// Create new source and add it to this core sources
@@ -125,12 +125,12 @@ namespace Binaural {
 	}
     
     // Create a new environment for spatialization in a specific room
-    shared_ptr<CEnvironment> CCore::CreateEnvironment()
+    std::shared_ptr<CEnvironment> CCore::CreateEnvironment()
     {
 		// Create new environment and add it to this core environment list
 		try
 		{
-			shared_ptr<CEnvironment> newEnvironment(new CEnvironment(this));
+            std::shared_ptr<CEnvironment> newEnvironment(new CEnvironment(this));
 			environments.push_back(newEnvironment);
 
 			SET_RESULT(RESULT_OK, "Environment in Core created succesfully");
@@ -144,13 +144,13 @@ namespace Binaural {
 		}
     }
 
-	const vector<shared_ptr<CEnvironment>> & CCore::GetEnvironments() const
+	const std::vector<std::shared_ptr<CEnvironment>> & CCore::GetEnvironments() const
 	{
 		return environments;
 	}
 
     // Stateless privately called version
-    void CCore::RemoveEnvironment(shared_ptr<CEnvironment> environment)
+    void CCore::RemoveEnvironment(std::shared_ptr<CEnvironment> environment)
     {
         if (environment == nullptr)
         {
@@ -177,12 +177,12 @@ namespace Binaural {
 
 
 	// Create a new audio source for spatialization
-	shared_ptr<CSingleSourceDSP> CCore::CreateSingleSourceDSP()
+	std::shared_ptr<CSingleSourceDSP> CCore::CreateSingleSourceDSP()
 	{
 		// Create new source and add it to this core sources
 		try
 		{
-			shared_ptr<CSingleSourceDSP> newSource(new CSingleSourceDSP(this));
+			std::shared_ptr<CSingleSourceDSP> newSource(new CSingleSourceDSP(this));
 			audioSources.push_back(newSource);
 			if(listener->GetHRTF()->IsHRTFLoaded()){ newSource->ResetSourceConvolutionBuffers(listener); }	//If the HRTF has been already loaded, the convolution buffers have to be set
 			
@@ -197,13 +197,13 @@ namespace Binaural {
 		}
 	}
 
-	const vector<shared_ptr<CSingleSourceDSP>> & CCore::GetSources() const
+	const std::vector<std::shared_ptr<CSingleSourceDSP>> & CCore::GetSources() const
 	{
 		return audioSources;
 	}
 
 	// Stateless privately called version
-	void CCore::RemoveSingleSourceDSP( shared_ptr<CSingleSourceDSP> source)
+	void CCore::RemoveSingleSourceDSP(std::shared_ptr<CSingleSourceDSP> source)
 	{
 		if (source == nullptr)
 		{

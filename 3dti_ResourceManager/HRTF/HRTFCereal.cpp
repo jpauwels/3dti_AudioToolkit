@@ -37,7 +37,7 @@ namespace HRTF
 
 //////////////////////////////////////////////////////
 		
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CListener> listener)
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CListener> listener)
 	{
 		try
 		{
@@ -115,7 +115,7 @@ namespace HRTF
 
 //////////////////////////////////////////////////////
 	
-	bool CreateFrom3dti(const std::string & input3dti, shared_ptr<Binaural::CListener> listener)
+	bool CreateFrom3dti(const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener)
 	{
 		std::ifstream input3dtiStream(input3dti, std::ios::binary);
 		if (input3dtiStream.is_open())

@@ -362,7 +362,7 @@ namespace Common {
 	/// This is because it is assumed that samples will have come out of the circular buffer from the front.
 	void CWaveguide::ShiftLeftSourcePositionsBuffer(int samples){
 
-		vector<int> positionsToDelete;
+		std::vector<int> positionsToDelete;
 		if (samples <= 0) { return; }
 		
 		//int positionToDelete = -1;
@@ -401,7 +401,7 @@ namespace Common {
 	/// Remove samples from the back side of the buffer in order to have the same size that the circular buffer	
 	void CWaveguide::ResizeSourcePositionsBuffer(int newSize) {
 		
-		vector<int> positionsToDelete;
+		std::vector<int> positionsToDelete;
 		if (newSize <= 0) { return; }
 				
 		for (int i = sourcePositionsBuffer.size() - 1; i > -1; i--) {
@@ -441,7 +441,7 @@ namespace Common {
 	void CWaveguide::CheckIntegritySourcePositionsBuffer() {
 		if (sourcePositionsBuffer.size() == 0) { return; }
 		if ((sourcePositionsBuffer[sourcePositionsBuffer.size() - 1].endIndex) != (circular_buffer.size() - 1)) {
-			cout << "error";
+			std::cout << "error";
 		}
 	}	
 }

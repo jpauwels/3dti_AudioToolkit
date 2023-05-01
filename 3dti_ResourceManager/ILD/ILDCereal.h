@@ -99,13 +99,13 @@ namespace ILD
 	*	\param [out] Listener that is affected by the ILD
 	*   \eh On error, an error code is reported to the error handler.
 	*/
-	bool CreateFrom3dti_ILDNearFieldEffectTable(const std::string & input3dti, shared_ptr<Binaural::CListener> listener); 
+	bool CreateFrom3dti_ILDNearFieldEffectTable(const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener);
 	/** \brief Creates the spacialization table for ILD from the 3dti input file. 
 	*	\param [in] 3dti file path with the data to create the spacialization table
 	*	\param [out] Listener that is affected by spacialization table
 	*   \eh On error, an error code is reported to the error handler.
 	*/
-	bool CreateFrom3dti_ILDSpatializationTable (const std::string & input3dti, shared_ptr<Binaural::CListener> listener ); 
+	bool CreateFrom3dti_ILDSpatializationTable (const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener );
 	
 	/** \brief Create ILD from a stream opened from a 3dti file
 	*	\param [in] 3dti file path with the data to create the spacialization table
@@ -113,7 +113,7 @@ namespace ILD
 	*	\param [out] table containing the ouput data
 	*   \eh On error, an error code is reported to the error handler.
 	*/
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CListener> listener, T_ILDTable tableDestiny);
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CListener> listener, T_ILDTable tableDestiny);
 }
 
 #endif

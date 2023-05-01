@@ -158,7 +158,7 @@ namespace BRIR
 
 	//////////////////////////////////////////////////////////////////////
 		
-	bool CreateFromSofa(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment)
+	bool CreateFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment)
 	{
 		if (LoadBRIRTableFromSOFA(sofafile, environment)) 
 		{
@@ -171,7 +171,7 @@ namespace BRIR
 		}
 	}
 
-	bool Create3DTIFromSofa(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment)
+	bool Create3DTIFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment)
 	{
 		if (!LoadBRIRTableFromSOFA(sofafile, environment)) 
 		{
@@ -181,7 +181,7 @@ namespace BRIR
 		return true;
 	}
 
-	bool LoadBRIRTableFromSOFA(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment) 	
+	bool LoadBRIRTableFromSOFA(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment)
 	{
 		std::ostream & output = std::cout;
 		try {

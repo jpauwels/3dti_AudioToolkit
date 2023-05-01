@@ -28,8 +28,6 @@
 #include <vector>
 #include <memory>
 
-using namespace std;	//TODO: Try to avoid this
-
 namespace Common {
 
 	/** \details This model implements a Patterson-Holdsworth Auditory Filterbank
@@ -130,7 +128,7 @@ namespace Common {
 		*	\eh On success, RESULT_OK is reported to the error handler.
 		*			 On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <Common::CGammatoneFilter> AddFilter(unsigned _order, double _freq, double _erb);
+		std::shared_ptr <Common::CGammatoneFilter> AddFilter(unsigned _order, double _freq, double _erb);
 
 		/** \brief Get one filter from the bank
 		*	\param [in] index ID of the filter within the bank
@@ -138,7 +136,7 @@ namespace Common {
 		*	\eh On success, RESULT_OK is reported to the error handler.
 		*			 On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <Common::CGammatoneFilter> GetFilter(int _index);
+		std::shared_ptr <Common::CGammatoneFilter> GetFilter(int _index);
 
 		/** \brief Remove all previously created filters.
 		*	 \eh On success, RESULT_OK is reported to the error handler.
@@ -183,7 +181,7 @@ namespace Common {
 		////////////////
 		// ATTRIBUTES
 		////////////////
-		vector<shared_ptr <Common::CGammatoneFilter> > filters;			// Hold the filters in the Bank.
+		std::vector<std::shared_ptr <Common::CGammatoneFilter> > filters;			// Hold the filters in the Bank.
 		double samplingFreq;							// Default samnpling freq for adding filters
 	};
 }// end namespace Common

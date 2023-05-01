@@ -102,7 +102,7 @@ namespace HRTF
 
 	//////////////////////////////////////////////////////////////////////
 
-	bool CreateFromSofa(const std::string & sofafile, shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
+	bool CreateFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
 	{
 		if (LoadHRTFTableFromSOFA(sofafile, listener, specifiedDelays))
 		{
@@ -118,7 +118,7 @@ namespace HRTF
 
 	//////////////////////////////////////////////////////////////////////
 
-	bool Create3DTIFromSofa(const std::string & sofafile, shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
+	bool Create3DTIFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
 	{
 		if (!LoadHRTFTableFromSOFA(sofafile, listener, specifiedDelays))
 		{
@@ -130,7 +130,7 @@ namespace HRTF
 	
 	//////////////////////////////////////////////////////////////////////
 	
-	bool LoadHRTFTableFromSOFA(const std::string & sofafile, shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
+	bool LoadHRTFTableFromSOFA(const std::string & sofafile, std::shared_ptr<Binaural::CListener> listener, bool & specifiedDelays)
 	{		
 		std::ostream & output = std::cout;
 		try {

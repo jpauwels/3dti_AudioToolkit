@@ -596,10 +596,10 @@ namespace Binaural
 		}
 	}
 
-	THRIRStruct CHRTF::CalculateHRIR_InOneHemispherePole(vector<orientation> keys_hemisphere)
+	THRIRStruct CHRTF::CalculateHRIR_InOneHemispherePole(std::vector<orientation> keys_hemisphere)
 	{
 		THRIRStruct calculatedHRIR;
-		std::vector < vector <orientation>> hemisphereParts;
+		std::vector < std::vector <orientation>> hemisphereParts;
 		hemisphereParts.resize(NUMBER_OF_PARTS);
 		int border = std::ceil(360.0f / NUMBER_OF_PARTS);
 

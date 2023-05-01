@@ -69,9 +69,9 @@ namespace BRIR {
 	*   \eh On error, an error code is reported to the error handler.
 	*   \retval Returns true on success. False otherwise
 	*/
-	bool CreateFrom3dti(const std::string & input3dti, shared_ptr<Binaural::CEnvironment> environment);			
+	bool CreateFrom3dti(const std::string & input3dti, std::shared_ptr<Binaural::CEnvironment> environment);
 
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CEnvironment> environment);
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CEnvironment> environment);
 }
 
 #endif

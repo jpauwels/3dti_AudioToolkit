@@ -35,8 +35,6 @@
 #include <vector>
 #include <memory>
 
-using namespace std;  //TODO: Try to avoid this
-
 namespace Binaural {
 
     class CSingleSourceDSP;
@@ -109,13 +107,13 @@ public:
 	 *   \eh On success, RESULT_OK is reported to the error handler.
 	 *       On error, an error code is reported to the error handler.
      */
-    shared_ptr<CListener> CreateListener(float listenerHeadRadius = 0.0875f);
+    std::shared_ptr<CListener> CreateListener(float listenerHeadRadius = 0.0875f);
     
 	/** \brief Get Core listener	
 	*	\retval listener listener object
 	*   \eh On error, an error code is reported to the error handler.
 	*/
-	shared_ptr<CListener> GetListener() const;
+    std::shared_ptr<CListener> GetListener() const;
 
     /** \brief Removes listener 
 	*   \eh On error, an error code is reported to the error handler.
@@ -129,19 +127,19 @@ public:
     /** \brief Creates a new environment
      *	\retval environment shared pointer to newly created environment with empty ABIR.
      */
-    shared_ptr<CEnvironment> CreateEnvironment();
+    std::shared_ptr<CEnvironment> CreateEnvironment();
     
     /** \brief Get all environments
      *  \retval const reference to a vector containing all environments
      */
-    const vector<shared_ptr<CEnvironment>> & GetEnvironments() const;
+    const std::vector<std::shared_ptr<CEnvironment>> & GetEnvironments() const;
 
     /** \brief Removes one environment
      *	\param [in] environment shared pointer to remove
 	 *   \eh On success, RESULT_OK is reported to the error handler.
 	 *       On error, an error code is reported to the error handler.
      */
-    void RemoveEnvironment(shared_ptr<CEnvironment> environment);
+    void RemoveEnvironment(std::shared_ptr<CEnvironment> environment);
 
 	/////////////////////////
 	// Audio source methods
@@ -152,19 +150,19 @@ public:
 	 *   \eh On success, RESULT_OK is reported to the error handler.
 	 *       On error, an error code is reported to the error handler.
      */
-    shared_ptr<CSingleSourceDSP> CreateSingleSourceDSP();
+    std::shared_ptr<CSingleSourceDSP> CreateSingleSourceDSP();
     
     /** \brief Get all sources
      *  \retval const reference to a vector containing all sources
      */
-    const vector<shared_ptr<CSingleSourceDSP>> & GetSources() const;
+    const std::vector<std::shared_ptr<CSingleSourceDSP>> & GetSources() const;
 
     /** \brief Removes one audio source for spatialization
      *	\param [in] source shared pointer of audio source to remove
 	 *   \eh On success, RESULT_OK is reported to the error handler.
 	 *       On error, an error code is reported to the error handler.
      */
-    void RemoveSingleSourceDSP(shared_ptr<CSingleSourceDSP> source);
+    void RemoveSingleSourceDSP(std::shared_ptr<CSingleSourceDSP> source);
 
 private:
 	// Reset the convolution buffer of each source	
@@ -184,9 +182,9 @@ private:
 	///////////////
 	// ATTRIBUTES
 	///////////////	
-	shared_ptr<CListener > listener;					// Listener attributes	
-    vector<shared_ptr<CEnvironment>> environments;		// Environment attributes 															
-	vector<shared_ptr<CSingleSourceDSP>> audioSources;	// List of audio sources 
+    std::shared_ptr<CListener > listener;				// Listener attributes
+    std::vector<std::shared_ptr<CEnvironment>> environments;		// Environment attributes
+    std::vector<std::shared_ptr<CSingleSourceDSP>> audioSources;	// List of audio sources
 	
 	Common::TAudioStateStruct audioState;				// Global audio state
 	Common::CMagnitudes magnitudes;						// Physical magnitudes

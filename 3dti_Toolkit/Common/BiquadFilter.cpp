@@ -181,7 +181,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception e)
+		catch (std::exception e)
 		{
 			//SET_RESULT(RESULT_ERROR_INVALID_PARAM, "");
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for bandpass biquad filter");
@@ -215,7 +215,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception e)
+		catch (std::exception e)
 		{
 			//SET_RESULT(RESULT_ERROR_INVALID_PARAM, "");
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for LPF biquad filter");
@@ -249,7 +249,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception e)
+		catch (std::exception e)
 		{
 			//SET_RESULT(RESULT_ERROR_INVALID_PARAM, "");
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for HPF biquad filter");
@@ -294,7 +294,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception & e)
+        catch (std::exception & e)
 		{
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for peak-notch biquad filter");
 			return false;
@@ -337,7 +337,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception e)
+        catch (std::exception e)
 		{
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for LOWSHELF biquad filter");
 			return false;
@@ -379,7 +379,7 @@ namespace Common {
 
 			return true;
 		}
-		catch (exception e)
+        catch (std::exception e)
 		{
 			SET_RESULT(RESULT_ERROR_DIVBYZERO, "Division by zero setting coefficients for LOWSHELF biquad filter");
 			return false;

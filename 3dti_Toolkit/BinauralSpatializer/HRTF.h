@@ -338,7 +338,7 @@ namespace Binaural
 
 		//	Calculate the HRIR in the pole of one of the hemispheres
 		//param hemisphereParts	vector of the HRTF orientations of the hemisphere
-		THRIRStruct CalculateHRIR_InOneHemispherePole(vector<orientation> hemisphereParts);
+		THRIRStruct CalculateHRIR_InOneHemispherePole(std::vector<orientation> hemisphereParts);
 
 		//	Calculate the resample matrix using the Barycentric interpolation Method (copy the HRIR function of the nearest orientation)
 		//param resamplingStep	HRTF resample matrix step for both azimuth and elevation

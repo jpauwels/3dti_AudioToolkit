@@ -65,7 +65,7 @@ namespace Common {
 
 		for (int c = 0; c < NUM_OF_BIQUAD_FILTERS_FOR_FAR_DISTANCE_FILTERING; c++)
 		{
-			shared_ptr <CBiquadFilter> onefilter  = distanceFiltersChain.AddFilter();			
+			std::shared_ptr <CBiquadFilter> onefilter  = distanceFiltersChain.AddFilter();
 			onefilter ->SetSamplingFreq(samplingRate);			
 			onefilter ->Setup(samplingRate, NO_FILTERING_CUT_OFF_FREQUENCY, LPF_Q, LOWPASS);			
 		}
