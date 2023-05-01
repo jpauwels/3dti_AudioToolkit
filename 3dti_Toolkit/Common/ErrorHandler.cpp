@@ -31,7 +31,7 @@ namespace Common {
 	// Last result reporting
 
 		// Generic method for obtaining description and suggestions of a result ID
-	void CErrorHandler::GetDescriptionAndSuggestion(TResultID result, string& description, string& suggestion)
+	void CErrorHandler::GetDescriptionAndSuggestion(TResultID result, std::string& description, std::string& suggestion)
 	{
 		// Set specific strings for each error type. Suggestions are generic and might be replaced with the one specified when calling to SetResult
 		switch (result)
@@ -77,11 +77,11 @@ namespace Common {
 	//////////////////////////////////////////////////////////
 
 	// Set error value of last operation
-	void CErrorHandler::SetResult(TResultID resultID, string suggestion, string filename, int linenumber)
+	void CErrorHandler::SetResult(TResultID resultID, std::string suggestion, std::string filename, int linenumber)
 	{
 		if (assertMode != ASSERT_MODE_EMPTY)	// Alternative: put this before logging to file
 		{
-			lock_guard<mutex> lock(errorHandlerMutex);
+			std::lock_guard<std::mutex> lock(errorHandlerMutex);
 
 			// Set result struct
 
@@ -90,7 +90,7 @@ namespace Common {
 			lastResult.filename = filename;
 
 			// Set specific strings for each result type. Suggestions are generic and might be replaced with the one specified
-			string defaultDescription, defaultSuggestion;
+			std::string defaultDescription, defaultSuggestion;
 			GetDescriptionAndSuggestion(lastResult.id, defaultDescription, defaultSuggestion);
 			lastResult.description = defaultDescription;
 
@@ -139,7 +139,7 @@ namespace Common {
 	{
 		if (assertMode != ASSERT_MODE_EMPTY)
 		{
-			string description, suggestion;
+			std::string description, suggestion;
 			firstError.id = RESULT_OK;
 			GetDescriptionAndSuggestion(firstError.id, description, suggestion);
 			firstError.description = description;
@@ -226,7 +226,7 @@ namespace Common {
 	// Logging to file
 
 	// Enable/disable log to file, using current verbosity mode (Optional: include verbosity mode as a parameter?)	
-	void CErrorHandler::SetErrorLogFile(string filename, bool logOn)
+	void CErrorHandler::SetErrorLogFile(std::string filename, bool logOn)
 	{
 		// TO DO: check errors!
 
@@ -242,7 +242,7 @@ namespace Common {
 
 	//////////////////////////////////////////////////////////
 
-	void CErrorHandler::SetErrorLogStream(ostream* outStream, bool logOn)
+	void CErrorHandler::SetErrorLogStream(std::ostream* outStream, bool logOn)
 	{
 		errorLogStream = outStream;
 		logToStream = logOn;
@@ -259,7 +259,7 @@ namespace Common {
 	//////////////////////////////////////////////////////////
 
 	// Log to stream
-	void CErrorHandler::LogErrorToStream(ostream& outStream, TResultStruct result)
+	void CErrorHandler::LogErrorToStream(std::ostream& outStream, TResultStruct result)
 	{
 		// Return if we want to log an OK in a verbosity mode not logging OK
 		if ((!verbosityMode.showOk) && (result.id == RESULT_OK))
@@ -327,7 +327,7 @@ namespace Common {
 	//////////////////////////////////////////////////////////
 
 	// Test a condition and generate error if false, doing the action specified by the assert mode
-	void CErrorHandler::AssertTest(bool condition, TResultID errorID, string suggestionError, string suggestionOK, string filename, int linenumber)
+	void CErrorHandler::AssertTest(bool condition, TResultID errorID, std::string suggestionError, std::string suggestionOK, std::string filename, int linenumber)
 	{
 		if (assertMode != ASSERT_MODE_EMPTY)
 		{
@@ -379,7 +379,7 @@ namespace Common {
 	//////////////////////////////////////////////////////////
 
 	// Enable/disable log to file of watched variables
-	void CErrorHandler::SetWatcherLogFile(TWatcherVariable whichVar, string filename, bool logOn)
+	void CErrorHandler::SetWatcherLogFile(TWatcherVariable whichVar, std::string filename, bool logOn)
 	{
 		// TO DO: check errors!
 

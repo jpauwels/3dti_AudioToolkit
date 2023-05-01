@@ -33,11 +33,11 @@ namespace Common {
 	}
 
 	//////////////////////////////////////////////
-	shared_ptr<CBiquadFilter> CFiltersChain::AddFilter()
+	std::shared_ptr<CBiquadFilter> CFiltersChain::AddFilter()
 	{
 		try
 		{
-			shared_ptr<CBiquadFilter> newFilter(new CBiquadFilter());
+			std::shared_ptr<CBiquadFilter> newFilter(new CBiquadFilter());
 			filters.push_back(newFilter);
 
 			SET_RESULT(RESULT_OK, "Filter added to filter chain succesfully");
@@ -53,7 +53,7 @@ namespace Common {
 
 	//////////////////////////////////////////////
 
-	shared_ptr<CBiquadFilter> CFiltersChain::GetFilter(int index)
+	std::shared_ptr<CBiquadFilter> CFiltersChain::GetFilter(int index)
 	{
 		if (index < 0 || filters.size() <= index)
 		{
@@ -81,7 +81,7 @@ namespace Common {
 		//SET_RESULT(RESULT_OK, "");
 		for (std::size_t c = 0; c < filters.size(); c++)
 		{
-			shared_ptr<CBiquadFilter> f = filters[c];
+			std::shared_ptr<CBiquadFilter> f = filters[c];
 			if (f != NULL)
 				f->Process(buffer);
 		}
@@ -110,7 +110,7 @@ namespace Common {
 			RemoveFilters();
 			for (int i = 0; i < coefficients.size(); i++)
 			{
-				shared_ptr<Common::CBiquadFilter> newBiquad = AddFilter();
+				std::shared_ptr<Common::CBiquadFilter> newBiquad = AddFilter();
 				newBiquad->SetCoefficients(coefficients[i]);
 			}
 		}

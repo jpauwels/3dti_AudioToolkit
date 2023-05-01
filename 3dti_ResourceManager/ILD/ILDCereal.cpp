@@ -83,7 +83,7 @@ namespace ILD {
 	}*/
 
 
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CListener> listener, T_ILDTable tableDestiny)
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CListener> listener, T_ILDTable tableDestiny)
 	{
 		try
 		{
@@ -127,7 +127,7 @@ namespace ILD {
 		}		
 	}
 
-	bool CreateFrom3dti_ILDNearFieldEffectTable(const std::string & input3dti, shared_ptr<Binaural::CListener> listener)
+	bool CreateFrom3dti_ILDNearFieldEffectTable(const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener)
 	{
 		std::ifstream input3dtiStream(input3dti, std::ios::binary);
 		if (input3dtiStream.is_open())
@@ -146,7 +146,7 @@ namespace ILD {
 		}
 	}
 
-	bool CreateFrom3dti_ILDSpatializationTable(const std::string & input3dti, shared_ptr<Binaural::CListener> listener)
+	bool CreateFrom3dti_ILDSpatializationTable(const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener)
 	{
 		std::ifstream input3dtiStream(input3dti, std::ios::binary);
 		if (input3dtiStream.is_open())

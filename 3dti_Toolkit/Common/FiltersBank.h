@@ -27,8 +27,6 @@
 #include <vector>
 #include <memory>
 
-//using namespace std;  //TODO: Try to avoid this
-
 namespace Common {
 
 	/** \details Class to handle processing through a set of parallel digital filters whose contributions are added.
@@ -50,7 +48,7 @@ namespace Common {
 		*   \eh On success, RESULT_OK is reported to the error handler.
 		*       On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <Common::CBiquadFilter> AddFilter();
+		std::shared_ptr <Common::CBiquadFilter> AddFilter();
 
 		/** \brief Get one filter from the bank
 		*	\param [in] index ID of the filter within the bank
@@ -58,7 +56,7 @@ namespace Common {
 		*   \eh On success, RESULT_OK is reported to the error handler.
 		*       On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <Common::CBiquadFilter> GetFilter(int index);
+		std::shared_ptr <Common::CBiquadFilter> GetFilter(int index);
 
 		/** \brief Remove all previously created filters.
 		*   \eh On success, RESULT_OK is reported to the error handler.
@@ -83,7 +81,7 @@ namespace Common {
 
 	private:
 		// PRIVATE ATTRIBUTES
-		vector<shared_ptr<Common::CBiquadFilter>> filters;                      // Hold the filters in the Bank. 
+		std::vector<std::shared_ptr<Common::CBiquadFilter>> filters;                      // Hold the filters in the Bank.
 																		// Indexes indicate the order within the Bank.
 	};
 }// end namespace Common

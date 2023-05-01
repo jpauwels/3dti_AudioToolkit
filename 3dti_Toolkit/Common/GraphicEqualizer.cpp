@@ -64,7 +64,7 @@ namespace Common {
 	//////////////////////////////////////////////
 	// Specifies the gain for each band in dB
     
-	void CGraphicEqualizer::SetGains_dB(vector<float> gains_dB)
+	void CGraphicEqualizer::SetGains_dB(std::vector<float> gains_dB)
 	{
 		if (gains_dB.size() != filterBank.GetNumFilters())
 		{

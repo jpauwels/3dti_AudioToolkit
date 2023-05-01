@@ -81,7 +81,7 @@ namespace Common {
 			double center_freq = -ear_q_min_bw;
 			center_freq += (_highFreq + ear_q_min_bw) / denominator;
 			double bandwidth = GetERBOfHumanAuditoryFilter(center_freq, _earModel);
-			shared_ptr<Common::CGammatoneFilter> filter = AddFilter(GAMMATONE_FILTER_ORDER, center_freq, bandwidth);
+			std::shared_ptr<Common::CGammatoneFilter> filter = AddFilter(GAMMATONE_FILTER_ORDER, center_freq, bandwidth);
 			filter->SetSamplingFreq(this->GetSamplingFreq());
 		}
 
@@ -114,7 +114,7 @@ namespace Common {
 	double CGammatoneFilterBank::SetFreqBandwidthOfFilter(int _index, double _centerFreq, T_earModel _earModel)
 	{
 		double erb = GetERBOfHumanAuditoryFilter(_centerFreq, _earModel);
-		shared_ptr<Common::CGammatoneFilter> filter = GetFilter(_index);
+		std::shared_ptr<Common::CGammatoneFilter> filter = GetFilter(_index);
 		if(filter != nullptr)
 		{
 			filter->SetCenterFrequency(_centerFreq);
@@ -146,11 +146,11 @@ namespace Common {
 	}
 	
 	//////////////////////////////////////////////
-	shared_ptr<Common::CGammatoneFilter> CGammatoneFilterBank::AddFilter(unsigned _order, double _freq, double _erb)
+	std::shared_ptr<Common::CGammatoneFilter> CGammatoneFilterBank::AddFilter(unsigned _order, double _freq, double _erb)
 	{
 		try
 		{
-			shared_ptr<Common::CGammatoneFilter> newFilter(new Common::CGammatoneFilter(_order, _freq, _erb));
+			std::shared_ptr<Common::CGammatoneFilter> newFilter(new Common::CGammatoneFilter(_order, _freq, _erb));
 			newFilter->SetSamplingFreq(this->GetSamplingFreq());
 			filters.insert(filters.begin(), newFilter);
 
@@ -166,7 +166,7 @@ namespace Common {
 	}
 
 	//////////////////////////////////////////////
-	shared_ptr<Common::CGammatoneFilter> CGammatoneFilterBank::GetFilter(int _index)
+	std::shared_ptr<Common::CGammatoneFilter> CGammatoneFilterBank::GetFilter(int _index)
 	{
 		if (_index < 0 || filters.size() <= _index)
 		{
@@ -209,7 +209,7 @@ namespace Common {
 	
 		for (std::size_t c = 0; c < filters.size(); c++)
 		{
-			shared_ptr<Common::CGammatoneFilter> f = filters[c];
+			std::shared_ptr<Common::CGammatoneFilter> f = filters[c];
 
 			if (f != nullptr)
 				f->SetSamplingFreq(_samplingFreq);
@@ -237,7 +237,7 @@ namespace Common {
 		//pthread lock
 		for (std::size_t c = 0; c < filters.size(); c++)
 		{
-			shared_ptr<Common::CGammatoneFilter> f = filters[c];
+			std::shared_ptr<Common::CGammatoneFilter> f = filters[c];
 
 			if (f != nullptr)
 			{

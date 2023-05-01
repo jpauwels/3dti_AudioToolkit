@@ -371,7 +371,7 @@ namespace Binaural {
 		// Apply doppler effect simulation
 		void ProcessAddDelay_ExpansionMethod(CMonoBuffer<float>& input, CMonoBuffer<float>& output, CMonoBuffer<float>& delayBuffer, int newDelay);
 		// Reset source convolution buffers
-		void ResetSourceConvolutionBuffers(shared_ptr<CListener> listener);
+		void ResetSourceConvolutionBuffers(std::shared_ptr<CListener> listener);
 		// return the flag which tells if the buffer is updated and ready for a new anechoic process
 		bool IsAnechoicProcessReady();
 		// return the flag which tells if the buffer is updated and ready for a new reverb process

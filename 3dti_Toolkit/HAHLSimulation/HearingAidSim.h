@@ -74,7 +74,7 @@ namespace HAHLSimulation {
 		*	\param [in] gains_dB vector with the gains for each band, in decibels		
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetAllBandGains_dB(Common::T_ear ear, vector<float> gains_dB);
+		void SetAllBandGains_dB(Common::T_ear ear, std::vector<float> gains_dB);
 
 		/** \brief Reset all parameters of HA of one ear to its default state
 		*	\param [in] ear for which ear we want to do the reset
@@ -129,7 +129,7 @@ namespace HAHLSimulation {
 		*               meter, 0 must be specified as the value of this param.		
 		*   \eh On error, an error code is reported to the error handler.
 		*/
-		void SetDynamicEqualizerUsingFig6(Common::T_ear ear, vector <float> &earLoss, float dBs_SPL_for_0_dBs_fs);
+		void SetDynamicEqualizerUsingFig6(Common::T_ear ear, std::vector <float> &earLoss, float dBs_SPL_for_0_dBs_fs);
 
 		/** \brief Set the reference value to calculate the offset to be applied to all the gains in
 		*          the curves so the maximum gain value in the level 0

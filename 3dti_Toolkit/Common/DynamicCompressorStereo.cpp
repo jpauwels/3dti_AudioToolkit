@@ -101,7 +101,7 @@ namespace Common {
 			envelopeL = envelopeDetectorLeft.ProcessSample(l);
 			envelopeR = envelopeDetectorLeft.ProcessSample(r);
 
-			envelope = max(envelopeL, envelopeR);
+			envelope = std::max(envelopeL, envelopeR);
 
 			cs = GetSlope();
 

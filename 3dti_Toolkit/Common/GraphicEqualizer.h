@@ -75,7 +75,7 @@ namespace Common {
 		*   \eh On success, RESULT_OK is reported to the error handler.
 		*       On error, an error code is reported to the error handler.
 		*/
-		void SetGains_dB(vector<float> gains_dB);
+		void SetGains_dB(std::vector<float> gains_dB);
 
 		/** \brief Set the gain for all bands of the equalizer to 0 dB
 		*   \eh On success, RESULT_OK is reported to the error handler.
@@ -105,7 +105,7 @@ namespace Common {
 	
 	private:
 
-		vector<float> bandFrequencies_Hz;      // Center frequencies for each equalizer band, in Hertzs
+		std::vector<float> bandFrequencies_Hz;      // Center frequencies for each equalizer band, in Hertzs
 		Common::CFiltersBank filterBank;        // Filter Bank to proccess the data
 	};
 }// end namespace Common

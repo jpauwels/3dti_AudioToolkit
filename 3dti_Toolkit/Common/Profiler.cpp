@@ -331,14 +331,14 @@ namespace Common {
 		{
 			for (int i = 1; i < dataSize; i++)
 			{
-				out << samples[i].FromTicksToUnits(tickFrequency).GetValue() << endl;
+				out << samples[i].FromTicksToUnits(tickFrequency).GetValue() << std::endl;
 			}
 		}
 		else	// RELATIVE SAMPLES
 		{
 			for (int i = 1; i < dataSize; i++)
 			{
-				out << samples[i].GetValue() << endl;
+				out << samples[i].GetValue() << std::endl;
 			}
 		}
 	}
@@ -346,10 +346,10 @@ namespace Common {
 	////////////////////////////////////////
 
 		// The same, but writing to file (caller does not need to worry about fstreams...)
-	void CProfilerDataSet::WriteToFile(string fileName, TInt64 tickFrequency) const
+	void CProfilerDataSet::WriteToFile(std::string fileName, TInt64 tickFrequency) const
 	{
 		// TO DO: error handler
-		ofstream dataSetFile;
+		std::ofstream dataSetFile;
 		dataSetFile.open(fileName);
 		WriteToStream(dataSetFile, tickFrequency);
 		dataSetFile.close();
@@ -447,7 +447,7 @@ namespace Common {
 #else
 	// Set default resolution. Setup other platform-dependent stuff. 
 	// In windows, get QPF (from Vista and newer, this can be read only once)
-	void CProfiler::InitProfiler(string externalDataPath)
+	void CProfiler::InitProfiler(std::string externalDataPath)
 	{
 		//SetResolution(UNITS_MICROSECONDS);				
 		SetResolution(UNITS_NANOSECONDS);
@@ -739,7 +739,7 @@ namespace Common {
 	////////////////////////////////////////
 
 		// Write data to file
-	void CProfiler::WriteToFile(CProfilerDataSet dataSet, string fileName) const
+	void CProfiler::WriteToFile(CProfilerDataSet dataSet, std::string fileName) const
 	{
 		if (isInitialized)
 		{

@@ -29,7 +29,7 @@ namespace BRIR
 
 //////////////////////////////////////////////////////
 
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CEnvironment> environment)
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CEnvironment> environment)
 	{
 		try
 		{
@@ -66,7 +66,7 @@ namespace BRIR
 
 //////////////////////////////////////////////////////
 
-	bool CreateFrom3dti(const std::string & input3dti, shared_ptr<Binaural::CEnvironment> environment)
+	bool CreateFrom3dti(const std::string & input3dti, std::shared_ptr<Binaural::CEnvironment> environment)
 	{
 		std::ifstream input3dtiStream(input3dti, std::ios::binary);
 		if (input3dtiStream.is_open())

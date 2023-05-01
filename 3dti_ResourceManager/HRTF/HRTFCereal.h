@@ -91,10 +91,10 @@ namespace HRTF {
 	*	\param [in] path of the 3dti file
 	*	\param [out] listener affected by the hrtf
 	*   \eh On error, an error code is reported to the error handler. */
-	bool CreateFrom3dti(const std::string & input3dti, shared_ptr<Binaural::CListener> listener);
+	bool CreateFrom3dti(const std::string & input3dti, std::shared_ptr<Binaural::CListener> listener);
 	
 	// Load HRTF head from a stream opened from a 3dti file
-	bool CreateFrom3dtiStream(std::istream& input3dtiStream, shared_ptr<Binaural::CListener> listener);	
+	bool CreateFrom3dtiStream(std::istream& input3dtiStream, std::shared_ptr<Binaural::CListener> listener);
 
 #if defined(PLATFORM_ANDROID)
 	//Binaural::CHRTF CreateFrom3dtiWithAndroidActivity(const std::string input3dti, ANativeActivity* activity, int bufferSize, int sampleRate);	///< Create head from 3dti file in Android platform	

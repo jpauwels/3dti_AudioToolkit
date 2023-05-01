@@ -30,8 +30,6 @@
 
 /*! \file */
 
-using namespace std;
-
 /** \brief If SWITCH_ON_3DTI_ERRORHANDLER is undefined, the error handler is completely disabled, causing 0 overhead
 */
 
@@ -172,9 +170,9 @@ enum TResultID
 struct TResultStruct
 {
 	TResultID id;			///< ID of result
-	string description;		///< Description of result
-	string suggestion;		///< Suggestion for fixing error or further information about result
-	string filename;		///< File from which result was reported
+	std::string description;		///< Description of result
+	std::string suggestion;		///< Suggestion for fixing error or further information about result
+	std::string filename;		///< File from which result was reported
 	int linenumber;			///< Line number at which result was reported (within filename file)
 };
 
@@ -295,7 +293,7 @@ namespace Common {
 		*	\param [in] filename file from which result is being reported
 		*	\param [in] linenumber line number at which result is being reported (whithin filename file)
 		*/
-		void SetResult(TResultID resultID, string suggestion, string filename, int linenumber);
+		void SetResult(TResultID resultID, std::string suggestion, std::string filename, int linenumber);
 
 #if defined (_3DTI_ANDROID_ERRORHANDLER)
 		void AndroidSetResult(TResultID resultID, string suggestion, string filename, int linenumber)
@@ -366,14 +364,14 @@ namespace Common {
 		*	\param [in] logOn switch on/off logging to file (default, true)
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetErrorLogFile(string filename, bool logOn = true);
+		void SetErrorLogFile(std::string filename, bool logOn = true);
 
 		/** \brief Enable log of reported results to output stream, using current verbosity mode
 		*	\param [in] outStream output stream
 		*	\param [in] logOn switch on/off logging to stream (default, true)
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetErrorLogStream(ostream* outStream, bool logOn = true);
+		void SetErrorLogStream(std::ostream* outStream, bool logOn = true);
 
 		//
 		// Assert modes
@@ -395,7 +393,7 @@ namespace Common {
 		*	\param [in] filename filename for reported result struct
 		*	\param [in] linenumber linenumber for reported result struct
 		*/
-		void AssertTest(bool condition, TResultID errorID, string suggestionError, string suggestionOK, string filename, int linenumber);
+		void AssertTest(bool condition, TResultID errorID, std::string suggestionError, std::string suggestionOK, std::string filename, int linenumber);
 
 #if defined (_3DTI_ANDROID_ERRORHANDLER)
 		void AndroidAssertTest(bool condition, TResultID errorID, string suggestionError, string suggestionOK, string filename, int linenumber)
@@ -431,7 +429,7 @@ namespace Common {
 		*	\param [in] logOn switch on/off file logging for this war (default, true)
 		*	\pre Variable was added to watch first
 		*/
-		void SetWatcherLogFile(TWatcherVariable whichVar, string filename, bool logOn = true);
+		void SetWatcherLogFile(TWatcherVariable whichVar, std::string filename, bool logOn = true);
 
 		/** \brief Sends the value of a variable to the watcher
 		*	\details The value will be recorded ONLY if the variable is on the list of watched variables. No overhead if the variable is not in the list
@@ -489,11 +487,11 @@ namespace Common {
 		}
 
 		// Generic method for obtaining description and suggestions of a result ID
-		void GetDescriptionAndSuggestion(TResultID result, string& description, string& suggestion);
+		void GetDescriptionAndSuggestion(TResultID result, std::string& description, std::string& suggestion);
 
 		// Log to file/stream
 		void LogErrorToFile(TResultStruct result);
-		void LogErrorToStream(ostream& outStream, TResultStruct result);
+		void LogErrorToStream(std::ostream& outStream, TResultStruct result);
 
 		// Reset all watches
 		void ResetWatcher();
@@ -501,7 +499,7 @@ namespace Common {
 	private:
 		// ATTRIBUTES:
 
-		mutex errorHandlerMutex;
+		std::mutex errorHandlerMutex;
 
 		// Last Result handling
 		TResultStruct lastResult;

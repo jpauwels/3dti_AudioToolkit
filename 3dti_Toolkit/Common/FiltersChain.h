@@ -27,8 +27,6 @@
 #include <vector>
 #include <memory>
 
-using namespace std;  //TODO: Try to avoid this
-
 namespace Common {
 
 	/** \brief Type definition for a set of coefficients of a filters chain
@@ -56,14 +54,14 @@ namespace Common {
 		*   \eh On success, RESULT_OK is reported to the error handler.
 		*       On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <CBiquadFilter> AddFilter();
+		std::shared_ptr <CBiquadFilter> AddFilter();
 
 		/** \brief Get one filter from the chain
 		*	\param [in] index ID of the filter within the chain
 		*	\retval filter shared pointer to filter from the chain
 		*   \eh On error, an error code is reported to the error handler.
 		*/
-		shared_ptr <CBiquadFilter> GetFilter(int index);
+		std::shared_ptr <CBiquadFilter> GetFilter(int index);
 
 		/** \brief Remove all previously created filters.
 		*   \eh On success, RESULT_OK is reported to the error handler.
@@ -95,7 +93,7 @@ namespace Common {
 		////////////////////////
 		// PRIVATE ATTRIBUTES
 		////////////////////////
-		vector<shared_ptr<CBiquadFilter>> filters;                      // Hold the filters in the chain. 
+		std::vector<std::shared_ptr<CBiquadFilter>> filters;                      // Hold the filters in the chain. 
 																		// Indexes indicate the order within the chain.
 	};
 }//end namespace Common

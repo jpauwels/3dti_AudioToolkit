@@ -46,7 +46,7 @@ namespace HAHLSimulation {
 		class CEqLevel
 		{
 		public:
-			vector<float> bands;           ///< Contains the value for each band (dBs)			
+			std::vector<float> bands;           ///< Contains the value for each band (dBs)
 			float threshold;               ///< Threshold value in dBfs used to decide which EqLevel must be applied 
 		};
 
@@ -93,7 +93,7 @@ namespace HAHLSimulation {
 		*   \eh On success, RESULT_OK is reported to the error handler.
 		*       On error, an error code is reported to the error handler.
 		*/
-		void SetGains_dB(vector<float> gains_dB);
+		void SetGains_dB(std::vector<float> gains_dB);
 
 		/** \brief Set the gain for all bands of the equalizer to 0 dB
 		*   \eh On success, RESULT_OK is reported to the error handler.
@@ -288,8 +288,8 @@ namespace HAHLSimulation {
 		float level_db;                         // Signal level provided by the envelope detector
 		Common::CEnvelopeDetector envelopeDetector;     // Envelope detector	
 		bool levelsInterpolation;				// When false, applies only the closest equalization curve. Otherwise, interpolates the closest two.
-		vector<float> bandFrequencies_Hz;      // Center frequencies for each equalizer band, in Hertzs
-		vector<CEqLevel> levels;                // Levels of the dynamic equalizer
+		std::vector<float> bandFrequencies_Hz;      // Center frequencies for each equalizer band, in Hertzs
+		std::vector<CEqLevel> levels;                // Levels of the dynamic equalizer
 		Common::CFiltersBank filterBank;        // Filter Bank to proccess the data
 		bool updateBandGainsIsPending;          // true to update the gains of the bands before processing the next frame
 		float compressionPercentage;            // Compression percentage towards the level 0 that will be applied

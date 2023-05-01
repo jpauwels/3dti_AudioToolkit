@@ -782,7 +782,7 @@ namespace Binaural {
 	}//End ProcessAddDelay_ExpansionMethod
 	
 	 //Reset the source convolution buffers
-	void CSingleSourceDSP::ResetSourceConvolutionBuffers(shared_ptr<CListener> listener)
+	void CSingleSourceDSP::ResetSourceConvolutionBuffers(std::shared_ptr<CListener> listener)
 	{		
 		#ifdef USE_FREQUENCY_COVOLUTION_WITHOUT_PARTITIONS_ANECHOIC
 			outputLeft.Setup(ownerCore->GetAudioState().bufferSize, listener->GetHRTF()->GetHRIRLength());

@@ -39,15 +39,15 @@ namespace BRIR
 	*	\param [out] listener affected by the hrtf
 	*   \eh On error, an error code is reported to the error handler.
 	*/
-	bool CreateFromSofa(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment);
+	bool CreateFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment);
 
 	/** \brief Loads a BRIR from SOFA file so a 3DTI file can be created later
 	*	\param [in] path of the sofa file
 	*	\param [out] listener affected by the hrtf
 	*   \eh On error, an error code is reported to the error handler. */
-	bool Create3DTIFromSofa(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment);
+	bool Create3DTIFromSofa(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment);
 	
-	bool LoadBRIRTableFromSOFA(const std::string & sofafile, shared_ptr<Binaural::CEnvironment> environment);
+	bool LoadBRIRTableFromSOFA(const std::string & sofafile, std::shared_ptr<Binaural::CEnvironment> environment);
 };
 
 #endif /* BRIRFactory_h */

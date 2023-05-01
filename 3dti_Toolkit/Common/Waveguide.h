@@ -146,7 +146,7 @@ namespace Common {
 		CMonoBuffer<float> mostRecentBuffer;			/// To store the last buffer introduced into the waveguide
 		boost::circular_buffer<float> circular_buffer;	/// To store the samples into the waveguide			
 		
-		vector<TSourcePosition> sourcePositionsBuffer;	/// To store the source positions in each frame
+		std::vector<TSourcePosition> sourcePositionsBuffer;	/// To store the source positions in each frame
 		CVector3 previousListenerPosition;				/// To store the last position of the listener
 		bool previousListenerPositionInitialized;		/// To store if the last position of the listener has been initialized		
 	};
