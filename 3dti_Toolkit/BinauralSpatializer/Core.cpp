@@ -92,7 +92,13 @@ namespace Binaural {
 	{
 		magnitudes = _magnitudes;
 	}
- 
+
+	// Set listener
+	void CCore::SetListener(const std::shared_ptr<CListener>& _listener)
+	{
+		listener = _listener;
+	}
+
     // Create a new listener
     std::shared_ptr<CListener> CCore::CreateListener(float listenerRadius)
     {

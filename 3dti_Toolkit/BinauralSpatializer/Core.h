@@ -115,6 +115,12 @@ public:
 	*/
     std::shared_ptr<CListener> GetListener() const;
 
+	/** \brief Set Core listener
+	*	\param[in] _listener listener object to set
+	*   \eh Nothing is reported to the error handler.
+	*/
+    void SetListener(const std::shared_ptr<CListener>& _listener);
+
     /** \brief Removes listener 
 	*   \eh On error, an error code is reported to the error handler.
     */
